@@ -1,0 +1,150 @@
+button {
+  all: unset;
+}
+
+.bar {
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  background-color: rgba(0,0,0,0);
+}
+
+// --------------------------------
+
+.workspaces {
+  padding: 10px;
+}
+
+.workspaces .workspace {
+  padding: 5px;
+}
+
+.workspaces .active {
+  font-weight: bold;
+} 
+
+// --------------------------------
+
+.time label {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+// --------------------------------
+
+.misc {
+  padding-bottom: 5px;
+}
+
+.misc label {
+  padding: 5px;
+}
+
+.powermenu {
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.misc button:hover {
+  text-shadow: white 1px 0px 3px;
+}
+
+.tray {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+menu {
+  background-color: rgba(0, 0, 0, 0.9);
+  font-size: 16px;
+}
+
+.brightness {
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.volume {
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.battery {
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.charging {
+  text-shadow: lightgreen 1px 0px 5px;
+}
+
+.critical {
+  text-shadow: red 1px 0px 5px;
+}
+
+.network {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.tlp {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+scale {
+  all: unset;
+  color: rgba(0, 0, 0, 0);
+  caret-color: rgba(0, 0, 0, 0);
+}
+
+scale trough highlight {
+  background-color: white;
+  color: black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+
+scale trough {
+  all: initial;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  min-height: 80px;
+  min-width: 20px;
+  margin: .3rem 0 .3rem 0;
+}
+
+scale trough slider {
+  all:initial;
+  background-image: none;
+  border-radius: 0px;
+  min-height: 0px;
+  min-width: 0px;
+}
+
+// =============================================
+// |                 Powermenu                 |
+// =============================================
+
+.powermenu_overlay {
+  font-size: 16px;
+  border-radius: 50px;
+  background-color: transparent;
+}
+
+.powermenu_overlay button {
+  all: unset;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 64px;
+  margin: 5px;
+  background-color: rgba(29, 29, 29, 0.629);
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+.powermenu_overlay button:hover {
+  text-shadow: rgb(255, 255, 255) 0px 0px 10px;
+}

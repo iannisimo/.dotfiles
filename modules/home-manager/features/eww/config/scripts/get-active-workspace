@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+active (){
+	hyprctl activeworkspace -j | jq -c '.id'
+}
+
+active
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+	active
+done

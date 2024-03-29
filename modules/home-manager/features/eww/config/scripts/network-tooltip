@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+SSID=$(nmcli d | grep wifi | grep \ connected | head -n1 | awk '{print $4}')
+ETH_IFACE=$(nmcli d | grep ethernet | grep \ connected | head -n1 | awk '{print $1}')
+
+ethernet (){
+  nmcli d | grep ethernet | grep \ connected | wc -l
+}
+
+wifi (){
+  nmcli d | grep wifi | grep \ connected | wc -l
+}
+
+
+if [ $(wifi) -ge 1 ]; then
+  echo "SSID: ${SSID}";
+fi
+if [ $(ethernet) -ge 1 ]; then
+  echo "ETH:  ${ETH_IFACE}";
+fi

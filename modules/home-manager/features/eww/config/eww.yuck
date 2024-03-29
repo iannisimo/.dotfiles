@@ -1,0 +1,394 @@
+; Local execution
+; -- EWW_SCRIPTS=~/.dotfiles/modules/home-manager/features/eww/config/scripts EWW_CONFIG=~/.dotfiles/modules/home-manager/features/eww/config  eww -c ~/.dotfiles/modules/home-manager/features/eww/config/ open bar
+(defvar eww "eww -c $EWW_CONFIG")
+
+(
+  defwidget bar []
+  (
+    eventbox
+    :onhoverlost "${eww} update brightness-visible=false && ${eww} update volume-visible=false"
+    (
+      centerbox
+      :orientation "v"
+      (workspaces)
+      (timebox)
+      (misc)
+    )
+  )
+)
+
+(
+  deflisten workspaces
+  :initial "[]"
+  "bash $EWW_SCRIPTS/get-workspaces"
+)
+(
+  deflisten active-workspace
+  :initial "1"
+  "bash $EWW_SCRIPTS/get-active-workspace"
+)
+(
+  defwidget workspaces []
+  (
+    box
+    :space-evenly false
+    :orientation "v"
+    :class "workspaces"
+    (
+      ; Workarownd to read the changing of values
+      label
+      :text "${active-workspace}${workspaces}"
+      :visible false
+    )
+    (
+      for workspace in workspaces
+      (
+        eventbox
+        :onclick "hyprctl dispatch workspace ${workspace}"
+        (
+          box
+          :class "workspace ${active-workspace == workspace ? 'active' : ''}"
+          (
+            label :text ""
+            :visible true
+          )
+        )
+      )
+    )
+  )
+)
+
+(
+  defwidget timebox []
+  (
+    box
+    :orientation "v"
+    :space-evenly false
+    :valign "center"
+    (
+      box
+      :orientation "v"
+      :space-evenly false
+      :class "time"
+      (label :text hour)
+      (label :text minute)
+    )
+  )
+)
+
+(defpoll hour :interval "60s" "date +'%H'")
+(defpoll minute :interval "10s" "date +'%M'")
+
+(
+  defwidget misc []
+  (
+    box
+    :orientation "v"
+    :space-evenly false
+    :class "misc"
+    :valign "end"
+    (tlp)
+    (network)
+    (battery)
+    (volume)
+    (brightness)
+    (powermenu)
+    (tray)
+  )
+  
+)
+
+(defvar tray-visible "false")
+
+(
+  defwidget tray []
+  (
+    box
+    :orientation "v"
+    :space-evenly false
+    :class "tray"
+    (
+      revealer
+      :transition "slideup"
+      :reveal tray-visible
+      :duration "800ms"
+      (
+        systray
+        :pack-direction "btt"
+        :icon-size 20
+      )
+    )
+    (
+      button
+      :onclick "${eww} update tray-visible=${!tray-visible}"
+      ''
+    )
+  )
+)
+
+(defvar powermenu-visible "false")
+
+(
+  defwidget powermenu []
+  (
+    button
+    :onclick "${eww} ${powermenu-visible ? 'close' : 'open'} powermenu_overlay && ${eww} update powermenu-visible=${!powermenu-visible}"
+    :class "powermenu"
+    ''
+  )
+)
+
+
+(
+  defwidget powermenu_ []
+  (
+    eventbox
+    :onhover "${eww} update powermenu-visible=true"
+    (box
+      :orientation "v"
+      :space-evenly false
+      :class "powermenu"
+      (revealer
+        :class "sub"
+        :transition "slideup"
+        :reveal powermenu-visible
+        :duration "500ms"
+        (box
+          :orientation "v"
+          :space-evenly false
+          (button
+            :onclick "hyprctl dispatch exit"
+            :tooltip "Exit"
+            ''
+          )
+          (button
+            :onclick "sudo systemctl reboot"
+            :tooltip "Reboot"
+            ''
+          )
+          (button
+            :onclick "sudo systemctl suspend"
+            :tooltip "Suspend"
+            ''
+          )
+          (button
+            :onclick "sleep 0.2 && hyprctl dispatch dpms off"
+            :tooltip "Display off"
+            ''
+          )
+        )
+      )
+      (button
+        :onclick "sudo systemctl poweroff"
+        :tooltip "Poweroff"
+        ''
+      )
+    )
+  )
+)
+
+(defvar brightness-visible "false")
+(defpoll current-brightness :interval "1s" "brightnessctl get")
+
+(defpoll caffeinated :interval "1s" "pidof hypridle >/dev/null && echo false || echo true")
+
+(
+  defwidget brightness []
+  (
+    eventbox
+    :onhover "${eww} update brightness-visible=true"
+    (box
+      :orientation "v"
+      :space-evenly false
+      :class "brightness"
+      (revealer
+        :class "sub"
+        :transition "slideup"
+        :reveal brightness-visible
+        :duration "600ms"
+        (
+          scale
+          :min 1
+          :max 120001
+          :flipped true
+          :orientation "v"
+          :step 1
+          :onchange "brightnessctl set {}"
+          :value current-brightness
+        )
+      )
+      (button
+        :tooltip "${caffeinated ? 'Disable' : 'Enable'} caffeine"
+        :onclick "pidof hypridle && killall hypridle || hypridle &"
+        "${!caffeinated ? '' : ''}"
+      )
+    )
+  )
+)
+
+(defvar volume-visible "false")
+(defpoll current-volume :interval "1s" "pamixer --get-volume")
+(defpoll muted :interval "1s" "pamixer --get-mute")
+
+(
+  defwidget volume []
+  (
+    eventbox
+    :onhover "${eww} update volume-visible=true"
+    (box
+      :orientation "v"
+      :space-evenly false
+      :class "volume"
+      (revealer
+        :class "sub"
+        :transition "slideup"
+        :reveal volume-visible
+        :duration "600ms"
+        (
+          scale
+          :min 0
+          :max 100
+          :flipped true
+          :orientation "v"
+          :step 1
+          :onchange "pamixer --set-volume {}"
+          :value current-volume
+        )
+      )
+      (button
+        :onclick "pamixer --toggle-mute"
+        :tooltip "${muted == 'true' ? 'Unmute' : 'Mute'}"
+        "${muted == 'true' ? '' : (current-volume == 0 ? '' : (current-volume < 50 ? '' : ''))}"
+      )
+    )
+  )
+)
+
+(
+  defwidget battery []
+  (
+    label
+    :class "battery ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charging' : (EWW_BATTERY.BAT1.capacity < 20 ? 'critical' : '')}"
+    :tooltip "Capacity: ${EWW_BATTERY.BAT1.capacity}%"
+    :text "${EWW_BATTERY.BAT1.capacity < 5 ? '' : (EWW_BATTERY.BAT1.capacity < 30 ? '' : (EWW_BATTERY.BAT1.capacity < 60 ? '' : (EWW_BATTERY.BAT1.capacity < 90 ? '' : '')))}"
+  )
+)
+
+(defpoll network_status :interval "5s" "$EWW_SCRIPTS/get-network")
+(defpoll network_tooltip :interval "5s" "$EWW_SCRIPTS/network-tooltip")
+
+(
+  defwidget network [] 
+  (
+    label
+    :class "network"
+    :tooltip network_tooltip
+    :text "${network_status}"
+  )
+)
+
+(defpoll tlp-ac :interval "1s" "tlp-stat -s | grep Mode | grep AC | wc -l")
+
+(
+  defwidget tlp []
+  (
+    button
+    :class "tlp ${tlp-ac == 1 ? 'ac' : 'battery'}"
+    :tooltip "TLP: ${tlp-ac == 1 ? 'AC' : 'Battery'}"
+    :onclick "sudo tlp ${tlp-ac == 1 ? 'bat' : 'ac'}"
+    "${tlp-ac == 1 ? '' : ''}"
+  )
+
+)
+
+
+(
+  defwindow bar
+  :monitor 0
+  :geometry (
+    geometry :x "0%"
+    :y "0%"
+    :width "50px"
+    :height "100%"
+    :anchor "left center"
+  )
+  :reserve (
+    struts :side "left" :distance "40%"
+  )
+  :exclusive true
+  (bar)
+)
+
+(
+  defwindow powermenu_overlay
+  :monitor 0
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :geometry (
+    geometry :x "0%"
+    :y "0%"
+    :width "50%"
+    :height "40%"
+    :anchor "center"
+  )
+  :exclusive true
+  (
+    eventbox
+    :onhoverlost "${eww} close powermenu_overlay && ${eww} update powermenu-visible=false"
+    (powermenu_overlay_)
+  )
+)
+
+(
+  defwidget powermenu_overlay_ []
+  (
+    box
+    :orientation "v"
+    :class "powermenu-overlay" 
+    (
+      box
+      :orientation "h"
+      (
+        button
+        :tooltip "Poweroff"
+        :onclick "sudo systemctl poweroff"
+        ''
+      )
+      (
+        button
+        :tooltip "Reboot"
+        :onclick "sudo systemctl reboot"
+        ''
+      )
+      (
+        button
+        :tooltip "Suspend"
+        :onclick "sudo systemctl suspend"
+        ''
+      )
+      (
+        button
+        :tooltip "Exit"
+        :onclick "$(sleep 0.2 && hyprcltl dispatch exit) &"
+        ''
+      )
+    )
+    (
+      box
+      :orientation "h"
+      (
+        button
+        :tooltip "Display off"
+        :onclick "${eww} close powermenu_overlay && ${eww} update powermenu-visible=false  && $(sleep 0.2 && hyprctl dispatch dpms off) &"
+        ''
+      )
+      (
+        button
+        :tooltip "Lock"
+        :onclick "${eww} close powermenu_overlay && ${eww} update powermenu-visible=false  && $(sleep 0.2 && hyprlock) &"
+        ''
+      )
+    )
+  )
+)

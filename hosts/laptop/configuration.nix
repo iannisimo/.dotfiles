@@ -67,12 +67,14 @@
   # myNixOS.gdm.enable = true;
   # myNixOS.gnome.enable = true;
   myNixOS.sysctl_sudo.enable = true;
+  # Programs
+  myNixOS.bottles.enable = true;
 
 
-  disabledModules = [
-    "security/pam.nix"
-  ];
-  myNixOS.howdy.enable = true;
+  # disabledModules = [
+  #   "security/pam.nix"
+  # ];
+  # myNixOS.howdy.enable = true;
 
 
   # My Services

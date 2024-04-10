@@ -26,6 +26,9 @@
 
     packages = with pkgs; [
       cloudflared
+      comma
+      libreoffice
+      librecad
       cura
       discord
       opera

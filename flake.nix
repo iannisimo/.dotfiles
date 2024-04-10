@@ -14,7 +14,7 @@
     };
 
     eww = {
-      url = "github:ralismark/eww/tray-3";
+      url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,6 +40,8 @@
     nixpkgs-howdy = {
       url = "github:fufexan/nixpkgs/howdy";
     };
+
+    sweethome.url = "/home/simone/.config/flakes/sweethome3d-nix";
   };
 
   outputs = {...} @ inputs: 

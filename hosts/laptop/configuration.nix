@@ -67,9 +67,6 @@
   # myNixOS.gdm.enable = true;
   # myNixOS.gnome.enable = true;
   myNixOS.sysctl_sudo.enable = true;
-  # Programs
-  myNixOS.bottles.enable = true;
-  myNixOS.wine.enable = true;
 
 
   # disabledModules = [

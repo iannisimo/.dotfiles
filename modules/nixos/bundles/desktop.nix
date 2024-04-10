@@ -41,7 +41,7 @@
     ];
   };
 
-  nix.extraOptions = ''
-    access-tokens = ${builtins.readFile ../../../secrets/github_access_token}
-  '';
+  # nix.extraOptions = ''
+  #   access-tokens = ${builtins.readFile ../../../secrets/github_access_token}
+  # '';
 }

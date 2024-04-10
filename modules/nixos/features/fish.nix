@@ -13,6 +13,7 @@
     '';
   };
   environment.systemPackages = with pkgs; [
+    any-nix-shell
     grc
     fishPlugins.grc
     fishPlugins.z

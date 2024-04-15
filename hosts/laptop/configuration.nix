@@ -67,6 +67,7 @@
   # myNixOS.gdm.enable = true;
   # myNixOS.gnome.enable = true;
   myNixOS.sysctl_sudo.enable = true;
+  myNixOS.cuda.enable = true;
 
 
   # disabledModules = [

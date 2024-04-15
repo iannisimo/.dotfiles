@@ -10,6 +10,11 @@
       "/run/opengl-driver-32/lib"
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    nvtop-nvidia
+    glxinfo
+  ];
   
   hardware.opengl = {
     enable = true;
@@ -63,5 +68,16 @@
       # Remove NVIDIA VGA/3D controller devices
       ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
     '';
+  };
+
+  specialisation."dGPU".configuration = {
+    system.nixos.tags = [ "dGPU" ];
+    hardware.nvidia.prime = lib.mkForce {};
+    hardware.nvidia.powerManagement = lib.mkForce {};
+    environment.variables = {
+      GBM_BACKEND = "nvidia-drm";
+      LIBVA_DRIVER_NAME = "nvidia";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
   };
 }

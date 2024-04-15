@@ -48,7 +48,7 @@
       ];
 
       xwayland = {
-        force_zero_scaling = true;
+        # force_zero_scaling = true;
       };
 
       input = {
@@ -63,6 +63,13 @@
         touchpad.natural_scroll = true;
 
         sensitivity = 0;
+      };
+
+      # Wireless mouse
+      device = {
+        name = "yichip-wireless-device-mouse";
+        sensitivity = -1;
+        accel_profile = "adaptive";
       };
 
       animations = {
@@ -99,6 +106,7 @@
         # open apps
         "$mod, Return, exec, alacritty"
         "$hypr, F, exec, firefox"
+        "$hypr, O, exec, opera"
         "$mod, Space, exec, rofi -show drun"
 
         # Window management
@@ -150,11 +158,18 @@
       ];
 
       windowrule = [
-        "opacity 0.9 overrite 0.7 override, ^(.*)$"
+        "opacity 0.99 override 0.85 override, ^(.*)$"
       ];
 
       windowrulev2 = [
-        "float,class:(firefox),title:(Bitwarden),"
+        "float,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        "size 20% 60%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        "move 70% 10%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        "suppressevent fullscreen maximize,class:^(firefox)$"
+        "float,class:^(.*\.exe)$,title:^(.*)," # Windows apps
+        "nomaxsize, title:^(Wine configuration)" # Winecfg fix
+        "tile, title:^(Wine configuration)" # Winecfg fix
+        "float, title:^(Winetricks.*)$" # Winetricks
       ];
     };
   };

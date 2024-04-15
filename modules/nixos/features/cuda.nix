@@ -29,4 +29,5 @@
       "-I/usr/include"
     ];
   };
+  config.nixpkgs.config.cudaSupport = true;
 }

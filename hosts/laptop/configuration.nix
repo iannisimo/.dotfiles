@@ -68,6 +68,7 @@
   # myNixOS.gnome.enable = true;
   myNixOS.sysctl_sudo.enable = true;
   myNixOS.cuda.enable = true;
+  myNixOS.python.enable = true;
 
 
   # disabledModules = [

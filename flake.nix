@@ -41,7 +41,13 @@
       url = "github:fufexan/nixpkgs/howdy";
     };
 
-    sweethome.url = "/home/simone/.config/flakes/sweethome3d-nix";
+    agenix = {
+      url = "github:ryantm/agenix";
+    };
+
+    sweethome = {
+      url = "/home/simone/.config/flakes/sweethome3d-nix";
+    };
   };
 
   outputs = {...} @ inputs: 
@@ -53,11 +59,15 @@
       
       laptop = mkSystem ./hosts/laptop/configuration.nix;
 
+      desktop = mkSystem ./hosts/desktop/configuration.nix;
+
     };
 
     homeConfigurations = {
       
       "simone@laptop" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
+
+      "simone@desktop" = mkHome "x86_64-linux" ./hosts/desktop/home.nix;
 
     };
 

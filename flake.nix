@@ -45,9 +45,9 @@
       url = "github:ryantm/agenix";
     };
 
-    sweethome = {
-      url = "/home/simone/.config/flakes/sweethome3d-nix";
-    };
+    # sweethome = {
+    #   url = "/home/simone/.config/flakes/sweethome3d-nix";
+    # };
   };
 
   outputs = {...} @ inputs: 

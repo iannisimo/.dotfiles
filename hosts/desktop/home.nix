@@ -18,6 +18,8 @@
   myHM.spotify.enable = true;
   myHM.nvim.enable = true;
 
+  myHM.hyprlock.enable = lib.mkForce false;
+
   home = {
     username = "simone";
     homeDirectory = lib.mkDefault "/home/simone";

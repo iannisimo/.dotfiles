@@ -25,6 +25,8 @@
     zip
     unzip
     yt-dlp
+    iftop
+    nmap
   ];
 
   home.sessionVariables = {

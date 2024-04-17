@@ -18,7 +18,7 @@
   myHM.spotify.enable = true;
   myHM.nvim.enable = true;
 
-  myHM.hyprlock.enable = lib.mkForce false;
+  myHM.hypridle.enable = lib.mkForce false;
 
   home = {
     username = "simone";

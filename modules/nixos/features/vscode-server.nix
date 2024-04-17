@@ -2,9 +2,12 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; {
-    nix-vscode-server
-  };
+  imports = [
+    inputs.vscode-server.nixosModules.default
+  ];
+  services.vscode-server.enable = true;
+
 }

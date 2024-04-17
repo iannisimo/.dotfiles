@@ -45,6 +45,10 @@
       url = "github:ryantm/agenix";
     };
 
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+    };
+
     # sweethome = {
     #   url = "/home/simone/.config/flakes/sweethome3d-nix";
     # };

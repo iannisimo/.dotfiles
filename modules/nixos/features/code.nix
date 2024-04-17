@@ -28,7 +28,7 @@
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv
 
-      ]
+      ];
     })
   ];
 }

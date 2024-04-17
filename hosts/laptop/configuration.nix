@@ -70,6 +70,8 @@
   myNixOS.cuda.enable = true;
   myNixOS.python.enable = true;
 
+  myNixOS.vscode-server.enable = true;
+  myNixOS.code.enable = true;
 
   # disabledModules = [
   #   "security/pam.nix"

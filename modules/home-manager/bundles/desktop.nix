@@ -7,7 +7,6 @@
 }: {
   home.packages = with pkgs; [
     firefox
-    vscode-fhs
     thunderbird
     telegram-desktop
     # gimp-with-plugins
@@ -15,4 +14,9 @@
     imagemagick
     nix-search-cli
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ pkgs.vscode-extensions.ms-vscode-remote.remote-ssh ]);
+  };
 }

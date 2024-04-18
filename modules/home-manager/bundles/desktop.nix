@@ -14,9 +14,4 @@
     imagemagick
     nix-search-cli
   ];
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ pkgs.vscode-extensions.ms-vscode-remote.remote-ssh ]);
-  };
 }

@@ -13,7 +13,7 @@
         mkhl.direnv
 
         github.copilot
-        github.copilot-chat
+        # github.copilot-chat
         
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-containers
@@ -28,6 +28,13 @@
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv
 
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "overleaf-workshop";
+          publisher = "iamhyc";
+          version = "0.12.0";
+          sha256 = "sha256-uxsbqBJEaQxf+DmSdi2uXGK3J+qmzdUyYohTaKqpe2k=";
+        }
       ];
     })
   ];

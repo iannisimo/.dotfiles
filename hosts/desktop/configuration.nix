@@ -106,6 +106,12 @@
   services.printing.enable = true;
   services.acpid.enable = true;
 
+  # Autologin for Desktop Environment
+  services.xserver.displayManager.autoLogin = {
+    enable = true;
+    user = "simone";
+  }
+
   #  -----------------------------------
   # |            DANGER ZONE            |
   #  -----------------------------------

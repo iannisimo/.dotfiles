@@ -110,7 +110,7 @@
   services.xserver.displayManager.autoLogin = {
     enable = true;
     user = "simone";
-  }
+  };
 
   #  -----------------------------------
   # |            DANGER ZONE            |

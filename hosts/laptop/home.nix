@@ -18,6 +18,7 @@
   myHM.alacritty.enable = true;
   myHM.spotify.enable = true;
   myHM.nvim.enable = true;
+  myHM.direnv.enable = true;
 
   home = {
     username = "simone";

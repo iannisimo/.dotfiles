@@ -69,7 +69,7 @@
   myNixOS.cuda.enable = true;
   myNixOS.python.enable = true;
 
-  myNixOS.vscode-server.enable = true;
+  # myNixOS.vscode-server.enable = true;
 
   # My Services
   # myNixOS.services.tlp.enable = true;
@@ -112,4 +112,5 @@
 
   system.stateVersion = "23.11";
 
+  programs.nix-ld.enable = true;
 }

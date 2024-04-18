@@ -18,7 +18,7 @@
     neofetch
     lf
     ffmpeg
-    busybox
+    coreutils
     wget
     htop
     git

@@ -19,6 +19,7 @@
     lf
     ffmpeg
     coreutils
+    killall 
     wget
     htop
     git

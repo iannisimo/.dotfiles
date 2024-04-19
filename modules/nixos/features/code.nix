@@ -42,6 +42,13 @@
           version = "0.0.3";
           sha256 = "sha256-DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
         }
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "remote-server";
+          publisher = "ms-vscode";
+          version = "1.6.2024041609";
+          sha256 = "sha256-2MwWoZlN9uVSPbN5K+yBXuCwTIpgoNQ1AEadxUn40zQ=";
+        }
       ];
     })
   ];

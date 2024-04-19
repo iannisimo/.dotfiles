@@ -69,7 +69,8 @@
   myNixOS.cuda.enable = true;
   myNixOS.python.enable = true;
 
-  # myNixOS.vscode-server.enable = true;
+  myNixOS.code.enable = true;
+  myNixOS.vscode-server.enable = true;
 
   # My Services
   # myNixOS.services.tlp.enable = true;

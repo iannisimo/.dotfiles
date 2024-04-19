@@ -1,13 +1,8 @@
 {
-  pkgs,
-  lib,
-  config,
+  inputs,
   ...
 }: {
-  security.wrappers."AvConnect" = {
-    setuid = true;
-    owner = "root";
-    group = "root";
-    source = "${( pkgs.callPackage ./package.nix { } )}/usr/local/Aventail/AvConnect";
-  };
+  imports = [ inputs.connecttunnel-nix.nixosModule ];
+
+  programs.connect-tunnel.enable = true;
 }

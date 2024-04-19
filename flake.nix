@@ -49,6 +49,8 @@
       url = "github:nix-community/nixos-vscode-server";
     };
 
+    connecttunnel-nix.url = "github:iannisimo/connecttunnel-nix";
+
     # sweethome = {
     #   url = "/home/simone/.config/flakes/sweethome3d-nix";
     # };

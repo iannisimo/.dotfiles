@@ -72,6 +72,8 @@
   myNixOS.code.enable = true;
   myNixOS.vscode-server.enable = true;
 
+  myNixOS.sonicwall.enable = true;
+
   # My Services
   # myNixOS.services.tlp.enable = true;
   myNixOS.services.cloudflared.enable = true;

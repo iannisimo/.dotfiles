@@ -73,6 +73,8 @@
   myNixOS.vscode-server.enable = true;
   myNixOS.code.enable = true;
 
+  myNixOS.sonicwall.enable = true;
+
   # disabledModules = [
   #   "security/pam.nix"
   # ];

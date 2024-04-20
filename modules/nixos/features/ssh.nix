@@ -26,6 +26,10 @@
     Host debianrex
       ProxyCommand cloudflared access ssh --hostname debian.rexcam.xyz
       User hotel
+
+    Host nixrex
+      ProxyCommand cloudflared access ssh --hostname nixq.rexcam.xyz
+      User hotel
   '';
 in {
 

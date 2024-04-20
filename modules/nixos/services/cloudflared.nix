@@ -28,4 +28,8 @@
       Group = "cloudflared";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    cloudflared
+  ];
 }

@@ -7,8 +7,6 @@
   cfg = config.myNixOS.ssh;
 
   sshConfig = ''
-    Include ${config.age.secrets.ssh_config.path}
-
     Host *
       IdentityFile ${cfg.rsa_key}
       IdentityFile ${cfg.ed25519_key}
@@ -30,6 +28,7 @@
       User hotel
   '';
 in {
+
   options.myNixOS.ssh = {
     rsa_key = lib.mkOption {
       type = lib.types.str;
@@ -42,9 +41,21 @@ in {
       default = "~/.ssh/id_ed25519";
       description = "Path to the Ed25519 key file";
     };
+
+    use_secret = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Use the secret manager to store the SSH configuration";
+    }; 
   };
 
+  myNixOS.agenix.enable = cfg.use_secret;
   programs.ssh = {
-    extraConfig = sshConfig;
+    extraConfig = sshConfig + (if cfg.use_secret then ''
+      Include ${config.age.secrets.ssh_config.path}
+    '' else '''');
   };
+
+
+  
 }

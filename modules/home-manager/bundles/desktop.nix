@@ -12,6 +12,5 @@
     # gimp-with-plugins
     inkscape
     imagemagick
-    nix-search-cli
   ];
 }

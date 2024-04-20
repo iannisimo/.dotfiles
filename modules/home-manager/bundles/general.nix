@@ -28,6 +28,7 @@
     yt-dlp
     iftop
     nmap
+    nix-search-cli
   ];
 
   home.sessionVariables = {

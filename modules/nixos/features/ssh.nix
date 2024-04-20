@@ -33,13 +33,13 @@ in {
   options.myNixOS.ssh = {
     rsa_key = lib.mkOption {
       type = lib.types.str;
-      default = "$HOME/.ssh/id_rsa";
+      default = "~/.ssh/id_rsa";
       description = "Path to the RSA key file";
     };
 
     ed25519_key = lib.mkOption {
       type = lib.types.str;
-      default = "$HOME/.ssh/id_ed25519";
+      default = "~/.ssh/id_ed25519";
       description = "Path to the Ed25519 key file";
     };
   };

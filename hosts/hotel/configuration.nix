@@ -24,10 +24,12 @@
 
   networking = {
     hostName = "hotel_nixos";
-    networkmanager = {
-      enable = true;
-      wifi.macAddress = "random";
-    };
+    interfaces.eth0.ipv4.addresses = [{
+      address = "192.168.1.24";
+      prefixLength = 24;
+    }];
+    defaultGateway = "192.168.1.1";
+    nameservers = [ "192.168.1.1" ];
   };
 
   # MyNixOS Config

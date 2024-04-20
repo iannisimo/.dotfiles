@@ -1,6 +1,9 @@
 ; Local execution
 ; -- EWW_SCRIPTS=~/.dotfiles/modules/home-manager/features/eww/config/scripts EWW_CONFIG=~/.dotfiles/modules/home-manager/features/eww/config  eww -c ~/.dotfiles/modules/home-manager/features/eww/config/ open bar
 (defvar eww "eww -c $EWW_CONFIG")
+(defvar with_tlp "which tlp >/dev/null 2>/dev/null && echo true || echo false")
+(defvar with_bat "ls /sys/class/power_supply/* >/dev/null 2>/dev/null && echo true || echo false")
+(defvar with_blight "ls /sys/class/backlight/* >/dev/null 2>/dev/null && echo true || echo false")
 
 (
   defwidget bar []
@@ -202,6 +205,7 @@
       :space-evenly false
       :class "brightness"
       (revealer
+        :visible "${with_blight == 'true'}"
         :class "sub"
         :transition "slideup"
         :reveal brightness-visible
@@ -268,6 +272,7 @@
   defwidget battery []
   (
     label
+    :visible "${with_bat == 'true'}"
     :class "battery ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charging' : (EWW_BATTERY.BAT1.capacity < 20 ? 'critical' : '')}"
     :tooltip "Capacity: ${EWW_BATTERY.BAT1.capacity}%"
     :text "${EWW_BATTERY.BAT1.capacity < 5 ? '' : (EWW_BATTERY.BAT1.capacity < 30 ? '' : (EWW_BATTERY.BAT1.capacity < 60 ? '' : (EWW_BATTERY.BAT1.capacity < 90 ? '' : '')))}"
@@ -293,6 +298,7 @@
   defwidget tlp []
   (
     button
+    :visible "${with_tlp == 'true'}"
     :class "tlp ${tlp-ac == 1 ? 'ac' : 'battery'}"
     :tooltip "TLP: ${tlp-ac == 1 ? 'AC' : 'Battery'}"
     :onclick "sudo tlp ${tlp-ac == 1 ? 'bat' : 'ac'}"

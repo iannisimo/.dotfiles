@@ -18,8 +18,10 @@
 
   # Systemd-boot
   boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      device = "/dev/sda";
+    };
   };
 
   networking = {

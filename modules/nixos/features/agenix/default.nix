@@ -21,6 +21,13 @@
       group = "cloudflared";
     };
 
+    hotel-cloudflared = {
+      file = ./secrets/hotel-cloudflared.age;
+      mode = "777";
+      owner = "cloudflared";
+      group = "cloudflared";
+    };
+
     ssh_config = {
       file = ./secrets/ssh_config.age;
       mode = "600";

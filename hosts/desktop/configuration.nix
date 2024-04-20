@@ -76,7 +76,10 @@
 
   # My Services
   # myNixOS.services.tlp.enable = true;
-  myNixOS.services.cloudflared.enable = true;
+  myNixOS.services.cloudflared = {
+    enable = true;
+    token = config.age.secrets.desktop-cloudflared.path;
+  };
   
   # Services
   

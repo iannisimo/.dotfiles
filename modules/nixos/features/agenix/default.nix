@@ -14,8 +14,8 @@
   ];
 
   age.secrets = {
-    cloudflared = {
-      file = ./secrets/cloudflared.age;
+    desktop-cloudflared = {
+      file = ./secrets/desktop-cloudflared.age;
       mode = "777";
       owner = "cloudflared";
       group = "cloudflared";

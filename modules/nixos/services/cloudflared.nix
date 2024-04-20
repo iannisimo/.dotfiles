@@ -4,6 +4,11 @@
   lib,
   ...
 }: {
+  options.myNixOS.cloudflared.token = {
+    type = lib.types.str;
+    default = "";
+    description = "Cloudflared tunnel token";
+  };
   myNixOS.agenix.enable = true;
 
   users.users.cloudflared = {
@@ -17,7 +22,7 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "network-online.target" "systemd-resolved.service" ];
     serviceConfig = {
-      ExecStart = "/bin/sh -c '${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token $(cat ${config.age.secrets.cloudflared.path})'";
+      ExecStart = "/bin/sh -c '${pkgs.cloudflared}/bin/cloudflared tunnel --no-autoupdate run --token $(cat ${config.myNixOS.services.cloudflared})'";
       Restart = "always";
       User = "cloudflared";
       Group = "cloudflared";

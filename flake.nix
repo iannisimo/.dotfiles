@@ -67,6 +67,8 @@
 
       desktop = mkSystem ./hosts/desktop/configuration.nix;
 
+      hotel = mkSystem ./hosts/hotel/configuration.nix;
+
     };
 
     homeConfigurations = {
@@ -74,6 +76,8 @@
       "simone@laptop" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
 
       "simone@desktop" = mkHome "x86_64-linux" ./hosts/desktop/home.nix;
+
+      "simone@hotel" = mkHome "x86_64-linux" ./hosts/hotel/home.nix;
 
     };
 

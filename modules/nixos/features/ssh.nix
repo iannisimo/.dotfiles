@@ -7,6 +7,8 @@
   cfg = config.myNixOS.ssh;
 
   sshConfig = ''
+    Include ${config.age.secrets.ssh_config.path}
+
     Host *
       IdentityFile ${cfg.rsa_key}
       IdentityFile ${cfg.ed25519_key}
@@ -43,8 +45,6 @@ in {
   };
 
   programs.ssh = {
-    enable = true;
-    # Yes, readFile is not the best but this is not critical information.
-    extraConfig = sshConfig ++ ( builtins.readFile config.age.secrets.ssh_config.path );
+    extraConfig = sshConfig;
   };
 }

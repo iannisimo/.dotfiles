@@ -73,6 +73,8 @@
   myNixOS.vscode-server.enable = true;
 
   myNixOS.sonicwall.enable = true;
+  
+  myHM.ssh.enable = true;
 
   # My Services
   # myNixOS.services.tlp.enable = true;

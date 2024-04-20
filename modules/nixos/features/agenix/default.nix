@@ -20,6 +20,13 @@
       owner = "cloudflared";
       group = "cloudflared";
     };
+
+    ssh_config = {
+      file = ./secrets/ssh_config.age;
+      mode = "600";
+      owner = "simone";
+      group = "users";
+    };
   };
   age.identityPaths = [
     "/home/simone/.ssh/id_ed25519"

@@ -30,5 +30,6 @@
   };
   age.identityPaths = [
     "/home/simone/.ssh/id_ed25519"
+    "/home/hotel/.ssh/id_ed25519"
   ];
 }

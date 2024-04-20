@@ -60,10 +60,10 @@
   myNixOS.sonicwall.enable = true;
 
   # My Services
-  # myNixOS.services.cloudflared = {
-  #   enable = true;
-  #   token = config.age.secrets.desktop-cloudflared.path;
-  # };
+  myNixOS.services.cloudflared = {
+    enable = true;
+    token = config.age.secrets.hotel-cloudflared.path;
+  };
   
   # Services
   

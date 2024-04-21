@@ -75,7 +75,7 @@
     enable = true;
     settings = {
       PermitRootLogin = "no";
-      PasswordAuthentication = true; # TODO: change
+      PasswordAuthentication = false;
     };
   };
   

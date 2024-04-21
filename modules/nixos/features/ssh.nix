@@ -53,13 +53,18 @@ in {
     }; 
   };
 
-  myNixOS.agenix.enable = cfg.use_secret;
+  age.secrets.ssh_config = lib.mkIf cfg.use_secret ({
+    file = ./agenix/secrets/ssh_config.age;
+    mode = "600";
+    owner = "simone";
+    group = "users";
+  });
+
+  myNixOS.agenix.enable = if cfg.use_secret then true else false;
+
   programs.ssh = {
     extraConfig = sshConfig + (if cfg.use_secret then ''
       Include ${config.age.secrets.ssh_config.path}
-    '' else '''');
+    '' else "");
   };
-
-
-  
 }

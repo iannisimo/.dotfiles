@@ -170,6 +170,7 @@
         "nomaxsize, title:^(Wine configuration)" # Winecfg fix
         "tile, title:^(Wine configuration)" # Winecfg fix
         "float, title:^(Winetricks.*)$" # Winetricks
+        "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
       ];
     };
   };

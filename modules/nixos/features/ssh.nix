@@ -28,7 +28,7 @@
       User hotel
 
     Host nixrex
-      ProxyCommand cloudflared access ssh --hostname nixq.rexcam.xyz
+      ProxyCommand cloudflared access ssh --hostname nix.rexcam.xyz
       User hotel
   '';
 in {

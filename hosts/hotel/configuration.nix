@@ -66,7 +66,7 @@
   # My Services
   myNixOS.services.cloudflared = {
     enable = true;
-    token = config.age.secrets.hotel-cloudflared.path;
+    age-file = "hotel-cloudflared.age";
   };
   
   # Services

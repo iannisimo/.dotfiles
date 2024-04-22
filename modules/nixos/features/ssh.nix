@@ -10,6 +10,8 @@
     Host *
       IdentityFile ${cfg.ed25519_key}
       IdentityFile ${cfg.rsa_key}
+      ServerAliveCountMax 5
+      ServerAliveInterval 60
     
     Host github.com
       HostName github.com

@@ -118,6 +118,8 @@
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
 
+        "$mod, P, pin"
+
         "$hypr, M, fullscreen"
 
         # Fn keys

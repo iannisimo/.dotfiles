@@ -8,8 +8,8 @@
 
   sshConfig = ''
     Host *
-      IdentityFile ${cfg.rsa_key}
       IdentityFile ${cfg.ed25519_key}
+      IdentityFile ${cfg.rsa_key}
     
     Host github.com
       HostName github.com
@@ -63,8 +63,8 @@ in {
   myNixOS.agenix.enable = if cfg.use_secret then true else false;
 
   programs.ssh = {
-    extraConfig = sshConfig + (if cfg.use_secret then ''
+    extraConfig = (if cfg.use_secret then ''
       Include ${config.age.secrets.ssh_config.path}
-    '' else "");
+      '' else "") + sshConfig;
   };
 }

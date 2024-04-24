@@ -10,6 +10,7 @@
     Host *
       IdentityFile ${cfg.ed25519_key}
       IdentityFile ${cfg.rsa_key}
+      SetEnv TERM=xterm-256color
       ServerAliveCountMax 5
       ServerAliveInterval 60
     

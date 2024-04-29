@@ -66,11 +66,18 @@
       };
 
       # Wireless mouse
-      device = {
-        name = "yichip-wireless-device-mouse";
-        sensitivity = -1;
-        accel_profile = "adaptive";
-      };
+      # touchpad
+      device = [
+        {
+          name = "yichip-wireless-device-mouse";
+          sensitivity = -1;
+          accel_profile = "adaptive";
+        }
+        {
+          name = "cust0001:00-06cb:cdaa-touchpad";
+          enabled = true;
+        }
+      ];
 
       animations = {
         enabled = true;

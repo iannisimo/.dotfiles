@@ -27,11 +27,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1714641672,
-        "narHash": "sha256-SfR+sIHD0A7ttHDMVifAYqi6/smeSCIQcLq4e7NURUw=",
+        "lastModified": 1714655514,
+        "narHash": "sha256-9Sz1wR7sB2frOUPq7bJrNYbTaPNOyymtugNOp0GoxI4=",
         "owner": "iannisimo",
         "repo": "connecttunnel-nix",
-        "rev": "44429fa4865e588ce9a3a8edb2ecd0eb248283dc",
+        "rev": "6959a23444b1cb325228803232d53f3d6cf622ab",
         "type": "github"
       },
       "original": {

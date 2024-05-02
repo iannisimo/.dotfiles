@@ -1,16 +1,21 @@
 {
   inputs,
+  config,
   ...
 }: {
   imports = [ inputs.connecttunnel-nix.nixosModule ];
 
-  programs.connect-tunnel.enable = true;
-
   myNixOS.agenix.enable = true;
-  age.secrets.unipi-ct = {
-    file = ../agenix/secrets/unipi-ct.age;
+  age.secrets.connect-tunnel = {
+    file = ../agenix/secrets/connect-tunnel.age;
     mode = "600";
-    owner = "simone";
-    group = "users";
+    owner = "root";
+    group = "root";
+  };
+
+  programs.connect-tunnel = {
+    enable = true;
+    enableService = true;
+    configFile = config.age.secrets.connect-tunnel.path;
   };
 }

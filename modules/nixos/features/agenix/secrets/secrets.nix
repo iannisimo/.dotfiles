@@ -8,4 +8,5 @@ in {
   "hotel-cloudflared.age".publicKeys = [ hotel-nix ];
   "ssh_config.age".publicKeys = [ simone-desktop simone-laptop ];
   "unipi-ct.age".publicKeys = simone;
+  "connect-tunnel.age".publicKeys = simone;
 }

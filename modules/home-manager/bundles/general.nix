@@ -29,6 +29,7 @@
     iftop
     nmap
     nix-search-cli
+    bitwarden-cli
   ];
 
   home.sessionVariables = {

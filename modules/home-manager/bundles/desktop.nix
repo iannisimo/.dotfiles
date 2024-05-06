@@ -12,5 +12,7 @@
     # gimp-with-plugins
     inkscape
     imagemagick
+    bitwarden-desktop
+    youtube-music
   ];
 }

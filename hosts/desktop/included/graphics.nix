@@ -12,7 +12,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    nvtop-nvidia
+    nvtopPackages.nvidia
     glxinfo
   ];
 

@@ -3,11 +3,12 @@
 in {
   services.xserver = {
     enable = true;
-    displayManager.sddm = {
-      enable = lib.mkDefault true;
-      theme = "${sddmTheme}";
-      wayland.enable = true;
-    };
+  };
+
+  services.displayManager.sddm = {
+    enable = lib.mkDefault true;
+    theme = "${sddmTheme}";
+    wayland.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

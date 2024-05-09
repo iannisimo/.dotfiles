@@ -15,7 +15,7 @@
 
   programs.connect-tunnel = {
     enable = true;
-    enableService = true;
+    enableService = false;
     configFile = config.age.secrets.connect-tunnel.path;
   };
 }

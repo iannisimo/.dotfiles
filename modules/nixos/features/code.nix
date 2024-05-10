@@ -27,6 +27,7 @@
         
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv
+        hookyqr.beautify
 
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

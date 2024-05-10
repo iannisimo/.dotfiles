@@ -56,6 +56,16 @@ in {
   config = {
     nix.settings.experimental-features = ["nix-command" "flakes"];
     programs.nix-ld.enable = true;
-    nixpkgs.config.allowUnfree = true;
+    nixpkgs = {
+      overlays = [
+        (final: prev: {
+          stable = import inputs.stable-nixpkgs {
+            system = pkgs.system;
+            config.allowUnfree = true;
+          };
+        })
+      ];
+      config.allowUnfree = true;
+    };
   };
 }

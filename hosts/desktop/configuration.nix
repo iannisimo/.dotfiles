@@ -30,6 +30,25 @@
     };
   };
 
+  # TMP
+  home-manager = {
+    users = {
+      hlt = {...}: {
+        imports = [
+          ./home_hlt.nix
+          outputs.homeManagerModules.default
+        ];
+      };
+    };
+  };
+  users.users.hlt = {
+    isNormalUser = true;
+    home = "/home/hlt";
+    extraGroups = [ "wheel" "networkmanager" "video" "input" ];
+    shell = pkgs.bash;
+  };
+  # TMP END
+
   # MyNixOS Config
   myNixOS = {
     userName = "simone";

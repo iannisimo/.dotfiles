@@ -9,7 +9,8 @@
       "/run/opengl-driver/lib"
       "/run/opengl-driver-32/lib"
     ];
-  };
+    VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+  };  
 
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
@@ -20,6 +21,11 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      intel-vaapi-driver
+      libvdpau-va-gl
+      intel-media-driver
+    ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -51,7 +57,7 @@
 
   specialisation."iGPU".configuration = {
     system.nixos.tags = [ "iGPU" ];
-    hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+    hardware.opengl.extraPackages = lib.mkAfter [ pkgs.mesa.drivers ];
     hardware.nvidia = lib.mkForce {};
     services.xserver.videoDrivers = lib.mkForce [ "modesetting" ];
     boot.extraModprobeConfig = ''
@@ -77,7 +83,10 @@
     environment.variables = {
       GBM_BACKEND = "nvidia-drm";
       LIBVA_DRIVER_NAME = "nvidia";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __NV_PRIME_RENDER_OFFLOAD="1";
+      __NV_PRIME_RENDER_OFFLOAD_PROVIDER="NVIDIA-G0";
+      __GLX_VENDOR_LIBRARY_NAME="nvidia";
+      __VK_LAYER_NV_optimus="NVIDIA_only";
     };
   };
 }

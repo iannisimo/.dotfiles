@@ -78,6 +78,7 @@
       "simone@laptop" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
 
       "simone@desktop" = mkHome "x86_64-linux" ./hosts/desktop/home.nix;
+      "hlt@desktop" = mkHome "x86_64-linux" ./hosts/desktop/home_hlt.nix;
 
       "simone@hotel" = mkHome "x86_64-linux" ./hosts/hotel/home.nix;
 

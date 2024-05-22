@@ -27,12 +27,12 @@
     stateVersion = "23.11";
 
     packages = with pkgs; [
-      comma
-      libreoffice
-      librecad
-      cura
-      discord
-      opera
+      #comma
+      #libreoffice
+      #librecad
+      #cura
+      #discord
+      #opera
       inotify-tools
       dust
     ];

@@ -26,7 +26,7 @@
       ProxyCommand cloudflared access ssh --hostname ssh_desktop.ianniciello.me
       User simone
 
-    Host dekstop_hlt
+    Host desktop_hlt
       ProxyCommand cloudflared access ssh --hostname ssh_desktop.ianniciello.me
       User hlt
 

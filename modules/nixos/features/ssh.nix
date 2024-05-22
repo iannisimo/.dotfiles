@@ -26,6 +26,10 @@
       ProxyCommand cloudflared access ssh --hostname ssh_desktop.ianniciello.me
       User simone
 
+    Host dekstop_hlt
+      ProxyCommand cloudflared access ssh --hostname ssh_desktop.ianniciello.me
+      User hlt
+
     Host debianrex
       ProxyCommand cloudflared access ssh --hostname debian.rexcam.xyz
       User hotel
@@ -58,9 +62,9 @@ in {
 
   age.secrets.ssh_config = lib.mkIf cfg.use_secret ({
     file = ./agenix/secrets/ssh_config.age;
-    mode = "600";
-    owner = "simone";
-    group = "users";
+    mode = "644";
+    owner = "root";
+    group = "root";
   });
 
   myNixOS.agenix.enable = if cfg.use_secret then true else false;

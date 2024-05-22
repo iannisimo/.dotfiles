@@ -45,7 +45,12 @@
     isNormalUser = true;
     home = "/home/hlt";
     extraGroups = [ "wheel" "networkmanager" "video" "input" ];
-    shell = pkgs.bash;
+    shell = pkgs.fish;
+  };
+  environment.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = [
+      "1"
+    ];
   };
   # TMP END
 

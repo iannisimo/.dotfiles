@@ -108,6 +108,11 @@
     };
   };
 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
+
   services.locate = {
     enable = true;
     package = pkgs.mlocate;

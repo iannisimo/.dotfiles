@@ -128,6 +128,10 @@
     };
   };
 
+  services.tailscale = {
+    enable = true;
+  };
+
   services.locate = {
     enable = true;
     package = pkgs.mlocate;

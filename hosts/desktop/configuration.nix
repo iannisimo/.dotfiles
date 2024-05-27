@@ -26,7 +26,7 @@
     hostName = "simone_desktop";
     networkmanager = {
       enable = true;
-      wifi.macAddress = "random";
+      wifi.macAddress = "stable-ssid"; # Set to 'random' to change on every connection
     };
   };
 

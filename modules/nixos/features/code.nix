@@ -5,6 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    clang-tools
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         

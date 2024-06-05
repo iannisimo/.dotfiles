@@ -24,10 +24,14 @@
         ms-toolsai.jupyter-renderers
         ms-python.python
         ms-python.vscode-pylance
-        
+
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
+
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv
         hookyqr.beautify
+        tomoki1207.pdf
 
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

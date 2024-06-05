@@ -29,6 +29,7 @@
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
         xaver.clang-format
+        llvm-vs-code-extensions.vscode-clangd
 
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv

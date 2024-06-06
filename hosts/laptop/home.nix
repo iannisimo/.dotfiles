@@ -20,6 +20,8 @@
   myHM.nvim.enable = true;
   myHM.direnv.enable = true;
 
+  myHM.code.enable = true;
+
   home = {
     username = "simone";
     homeDirectory = lib.mkDefault "/home/simone";

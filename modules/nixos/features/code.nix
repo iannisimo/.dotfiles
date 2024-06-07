@@ -28,6 +28,7 @@
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
         ms-vscode.makefile-tools
+        twxs.cmake
 
         ms-azuretools.vscode-docker
         mechatroner.rainbow-csv

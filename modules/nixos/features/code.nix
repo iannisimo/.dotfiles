@@ -13,8 +13,9 @@
         mkhl.direnv
 
         github.copilot
-        # github.copilot-chat
-        
+        github.copilot-chat
+        donjayamanne.githistory
+
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-containers
 

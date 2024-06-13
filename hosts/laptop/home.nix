@@ -35,6 +35,7 @@
       opera
       inotify-tools
       dust
+      jetbrains.clion
     ];
   };
 }

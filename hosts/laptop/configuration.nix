@@ -72,7 +72,7 @@
 
   myNixOS.vscode-server.enable = true;
   myNixOS.code.enable = true;
-  myNixOS.clion.enable = true;
+  myNixOS.clion.enable = true;s
 
   myNixOS.sonicwall.enable = true;
 

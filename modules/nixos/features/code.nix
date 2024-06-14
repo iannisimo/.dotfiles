@@ -35,6 +35,7 @@
         mechatroner.rainbow-csv
         hookyqr.beautify
         tomoki1207.pdf
+        ms-vscode.hexeditor
 
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {

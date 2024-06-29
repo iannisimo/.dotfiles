@@ -124,6 +124,10 @@
   services.printing.enable = true;
   services.acpid.enable = true;
 
+  #  TESTS
+
+  virtualisation.waydroid.enable = true;
+
   #  -----------------------------------
   # |            DANGER ZONE            |
   #  -----------------------------------

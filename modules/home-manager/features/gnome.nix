@@ -52,7 +52,7 @@
       gnomeExtensions.user-themes
       gnomeExtensions.gsconnect
 
-      dconf-editor
+      gnome.dconf-editor
 
       libvncserver
       gnome.gnome-remote-desktop

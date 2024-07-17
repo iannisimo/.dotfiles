@@ -25,8 +25,9 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
   
-  hardware.graphics = {
+  hardware.opengl = {
     enable = true;
+    driSupport = true;
     driSupport32Bit = true;
   };
 

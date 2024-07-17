@@ -30,7 +30,7 @@
       comma
       libreoffice
       librecad
-      cura
+      # cura # waiting fix https://discourse.nixos.org/t/issue-building-nixos-due-to-sip-package/48702/5
       discord
       opera
       inotify-tools

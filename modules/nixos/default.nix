@@ -59,7 +59,7 @@ in {
     nixpkgs = {
       overlays = [
         (final: prev: {
-          stable = import inputs.stable-nixpkgs {
+          unstable = import inputs.unstable-nixpkgs {
             system = pkgs.system;
             config.allowUnfree = true;
           };

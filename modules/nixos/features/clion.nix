@@ -5,7 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    stable.jetbrains.clion
+    jetbrains.clion
   ];
 
 }

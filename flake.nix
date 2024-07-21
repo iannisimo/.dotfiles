@@ -52,7 +52,7 @@
     };
 
     nvim = {
-      url = "github:iannisimo/nix.nvim";
+      url = "github:iannisimo/nix.nvim/testing";
     };
 
     connecttunnel-nix.url = "github:iannisimo/connecttunnel-nix/dev";

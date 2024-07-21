@@ -9,10 +9,10 @@
     inputs.nvim.overlays.default
   ];
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    package = pkgs.nvim-pkg;
-  };  
+  environment.systemPackages = with pkgs; [
+    ( nvim-pkg.override {
+      vimAlias = true;
+      viAlias = true;
+   })
+  ];
 }

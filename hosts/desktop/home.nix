@@ -16,7 +16,6 @@
   myHM.hyprland.enable = true;
   myHM.alacritty.enable = true;
   myHM.spotify.enable = true;
-  myHM.nvim.enable = true;
   myHM.direnv.enable = true;
 
   myHM.hypridle.enable = lib.mkForce false;

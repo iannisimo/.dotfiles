@@ -10,7 +10,6 @@
   };
 
   myHM.git.enable = true;
-  myHM.nvim.enable = true;
   myHM.direnv.enable = true;
 
   home = {

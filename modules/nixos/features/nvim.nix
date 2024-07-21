@@ -13,6 +13,6 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    package = nvim-pkg;
+    package = pkgs.nvim-pkg;
   };  
 }

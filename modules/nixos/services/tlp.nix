@@ -53,6 +53,10 @@
           command = "${config.system.path}/bin/tlp";
           options = [ "NOPASSWD" ];
         }
+        {
+          command = "${config.system.path}/bin/tlp-stat";
+          options = [ "NOPASSWD" ];
+        }
       ];
       groups = [ "wheel" ];
     }];

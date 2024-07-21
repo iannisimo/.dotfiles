@@ -51,6 +51,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvim = {
+      url = "github:iannisimo/nix.nvim";
+    };
+
     connecttunnel-nix.url = "github:iannisimo/connecttunnel-nix/dev";
 
   };

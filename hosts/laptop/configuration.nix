@@ -73,6 +73,7 @@
   myNixOS.vscode-server.enable = true;
   myNixOS.code.enable = true;
   myNixOS.clion.enable = false; # Do not enable; it's a trap
+  myNixOS.nvim.enable = true;
 
   myNixOS.sonicwall.enable = true;
 

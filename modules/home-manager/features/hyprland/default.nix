@@ -7,7 +7,7 @@
 }: {
 
   services.swayosd.enable = true;
-  #myHM.eww.enable = true;
+  myHM.eww.enable = true;
   myHM.rofi.enable = true;
   myHM.hyprlock.enable = true;
   myHM.hypridle.enable = true;
@@ -27,9 +27,9 @@
       exec-once = [
         "swww init && swww img ${config.myHM.swww.imgPath}/${config.myHM.swww.img}"
         "nm-applet"
-        "blueman-applet"
+        "blueman-tray"
         "hypridle"
-      #  "EWW_CONFIG=~/.config/eww EWW_SCRIPTS=~/.config/eww/scripts eww open bar"
+        "EWW_CONFIG=~/.config/eww EWW_SCRIPTS=~/.config/eww/scripts eww open bar"
       ];
 
       monitor = [
@@ -45,8 +45,8 @@
 
       env = [
         "XCURSOR_SIZE=24"
-      #  "EWW_CONFIG=~/.config/eww"
-      #  "EWW_SCRIPTS=~/.config/eww/scripts"
+        "EWW_CONFIG=~/.config/eww"
+        "EWW_SCRIPTS=~/.config/eww/scripts"
       ];
 
       xwayland = {

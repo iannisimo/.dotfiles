@@ -53,9 +53,6 @@
 
     connecttunnel-nix.url = "github:iannisimo/connecttunnel-nix/dev";
 
-    # sweethome = {
-    #   url = "/home/simone/.config/flakes/sweethome3d-nix";
-    # };
   };
 
   outputs = {...} @ inputs: 

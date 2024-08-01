@@ -41,6 +41,7 @@
         "adbusers"
         "video"
         "input"
+        "dialout"
       ];
       shell = pkgs.fish;
     };

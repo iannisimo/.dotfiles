@@ -1,9 +1,9 @@
 ; Local execution
 ; -- EWW_SCRIPTS=~/.dotfiles/modules/home-manager/features/eww/config/scripts EWW_CONFIG=~/.dotfiles/modules/home-manager/features/eww/config  eww -c ~/.dotfiles/modules/home-manager/features/eww/config/ open bar
 (defvar eww "eww -c $EWW_CONFIG")
-(defvar with_tlp "which tlp >/dev/null 2>/dev/null && echo true || echo false")
-(defvar with_bat "ls /sys/class/power_supply/* >/dev/null 2>/dev/null && echo true || echo false")
-(defvar with_blight "ls /sys/class/backlight/* >/dev/null 2>/dev/null && echo true || echo false")
+(defpoll with_tlp :initial "false" :interval "24h" `which tlp >/dev/null 2>/dev/null && echo true || echo false`)
+(defpoll with_bat :initial "false" :interval "24h" "ls /sys/class/power_supply/* >/dev/null 2>/dev/null && echo true || echo false")
+(defpoll with_blight :initial "false" :interval "24h" "ls /sys/class/backlight/* >/dev/null 2>/dev/null && echo true || echo false")
 
 (
   defwidget bar []

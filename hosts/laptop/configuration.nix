@@ -42,6 +42,7 @@
         "video"
         "input"
         "dialout"
+        "disk"
       ];
       shell = pkgs.fish;
     };

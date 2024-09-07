@@ -10,11 +10,13 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; 
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    
+    #hyprland = {
+    #  type = "git";
+    #  url = "https://github.com/hyprwm/hyprland";
+    #  submodules = true;
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     eww = {
       url = "github:elkowar/eww";
@@ -33,7 +35,7 @@
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "unstable-nixpkgs";
     };
 
     isw-nix = {

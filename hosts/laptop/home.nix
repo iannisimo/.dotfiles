@@ -16,7 +16,7 @@
   myHM.git.enable = true;
   myHM.hyprland.enable = true;
   myHM.alacritty.enable = true;
-  myHM.spotify.enable = true;
+  # myHM.spotify.enable = true;
   myHM.direnv.enable = true;
 
   home = {

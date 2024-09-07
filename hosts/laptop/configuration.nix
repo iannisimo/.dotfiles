@@ -67,7 +67,7 @@
   myNixOS.hyprland.enable = true;
   # - GNOME
   # myNixOS.gdm.enable = true;
-  # myNixOS.gnome.enable = true;
+  myNixOS.gnome.enable = true;
   myNixOS.sysctl_sudo.enable = true;
   myNixOS.cuda.enable = true;
   myNixOS.python.enable = true;
@@ -126,10 +126,6 @@
   services.blueman.enable = true;
   services.printing.enable = true;
   services.acpid.enable = true;
-
-  #  TESTS
-
-  virtualisation.waydroid.enable = true;
 
   #  -----------------------------------
   # |            DANGER ZONE            |

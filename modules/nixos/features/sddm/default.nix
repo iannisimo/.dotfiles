@@ -7,6 +7,7 @@ in {
 
   services.displayManager.sddm = {
     enable = lib.mkDefault true;
+    package = pkgs.unstable.sddm;
     theme = "${sddmTheme}";
     wayland.enable = true;
   };

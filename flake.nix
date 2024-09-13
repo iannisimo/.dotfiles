@@ -18,6 +18,11 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    zen = {
+      url = "github:MarceColl/zen-browser-flake";
+      inputs.nixpkgs.follows = "unstable-nixpkgs";
+    };
+
     eww = {
       url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -18,6 +18,7 @@
   myHM.alacritty.enable = true;
   # myHM.spotify.enable = true;
   myHM.direnv.enable = true;
+  myHM.zen-browser.enable = true;
 
   home = {
     username = "simone";

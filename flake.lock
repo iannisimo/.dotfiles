@@ -530,11 +530,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1725609754,
-        "narHash": "sha256-rQImNJWRUzypaJ8giWx/eWlDIWAghNfKI6O9uxSvWic=",
+        "lastModified": 1726060719,
+        "narHash": "sha256-iS9uNhtkthyBkhpRb7oS8/4kszG49YWS6ZqUrIcoLq4=",
         "owner": "iannisimo",
         "repo": "nix.nvim",
-        "rev": "11dcdda48a5f4fa432d6daef0863de1934b2d23b",
+        "rev": "ae2c56e026b2aa33a47e5cf6cf14f03a45e8d84e",
         "type": "github"
       },
       "original": {
@@ -557,7 +557,8 @@
         "nvim": "nvim",
         "spicetify-nix": "spicetify-nix",
         "unstable-nixpkgs": "unstable-nixpkgs",
-        "vscode-server": "vscode-server"
+        "vscode-server": "vscode-server",
+        "zen": "zen"
       }
     },
     "rust-overlay": {
@@ -756,6 +757,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixos-vscode-server",
+        "type": "github"
+      }
+    },
+    "zen": {
+      "inputs": {
+        "nixpkgs": [
+          "unstable-nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1726001766,
+        "narHash": "sha256-ADvEWfo0AuHR06ah1nnzOyhsG05/b5QpUc7vFNbiEfM=",
+        "owner": "MarceColl",
+        "repo": "zen-browser-flake",
+        "rev": "06505a088396e2c0b9ad100302502783a6bcdb40",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MarceColl",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

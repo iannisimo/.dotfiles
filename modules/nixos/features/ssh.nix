@@ -74,4 +74,8 @@ in {
       Include ${config.age.secrets.ssh_config.path}
       '' else "") + sshConfig;
   };
+
+  environment.systemPackages = with pkgs; [
+    sshfs 
+  ];
 }

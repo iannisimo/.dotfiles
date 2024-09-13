@@ -30,10 +30,26 @@
         "blueman-tray"
         "hypridle"
         "EWW_CONFIG=~/.config/eww EWW_SCRIPTS=~/.config/eww/scripts eww open bar"
+        "${pkgs.activate-linux}/bin/activate-linux -d"
       ];
 
+      general = {
+        layout = "master";
+        gaps_in = 5;
+        gaps_out = 10;
+      };
+
+      decoration = {
+        rounding = 5;
+      };
+
+      master = {
+        mfact = 0.75;
+        no_gaps_when_only = true;
+      };
+
       monitor = [
-        # Internal
+# Internal
         "eDP-1,1920x1080@60,10000x10000,1"
         # Desktop
         "desc:Samsung Electric Company U28E590 HTPJ304532,2560x1440,10000x8560,1"
@@ -130,6 +146,15 @@
         "$mod, P, pin"
 
         "$hypr, M, fullscreen"
+        "$hypr, T, togglefloating"
+        "$mod, M, layoutmsg, swapwithmaster"
+        "$hypr, right, layoutmsg, rollnext"
+        "$hypr, left, layoutmsg, rollprev"
+        "$hypr shift, left, layoutmsg, orientationleft"        
+        "$hypr shift, right, layoutmsg, orientationright"
+        "$hypr shift, up, layoutmsg, orientationtop"
+        "$hypr shift, down, layoutmsg, orientationbottom"
+        "$hypr shift, C, layoutmsg, orientationcenter"
 
         # Fn keys
         ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
@@ -168,20 +193,21 @@
         ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
       ];
 
-      windowrule = [
-        "opacity 0.99 override 0.85 override, ^(.*)$"
-      ];
+      # windowrule = [
+      #   "opacity 0.99 override 0.85 override, ^(.*)$"
+      # ];
 
       windowrulev2 = [
-        "float,class:^(firefox)$,title:^(.*Bitwarden.*)$"
-        "size 20% 60%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
-        "move 70% 10%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        #"float,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        #"size 20% 60%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
+        #"move 70% 10%,class:^(firefox)$,title:^(.*Bitwarden.*)$"
         "suppressevent fullscreen maximize,class:^(firefox)$"
         "float,class:^(.*\.exe)$,title:^(.*)," # Windows apps
         "nomaxsize, title:^(Wine configuration)" # Winecfg fix
         "tile, title:^(Wine configuration)" # Winecfg fix
         "float, title:^(Winetricks.*)$" # Winetricks
         "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
+        "opacity 1 override 1 override, class:^(firefox)$, title:^(Picture-in-Picture)$"
       ];
     };
   };

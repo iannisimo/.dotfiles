@@ -18,7 +18,7 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    zen = {
+    zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "unstable-nixpkgs";
     };

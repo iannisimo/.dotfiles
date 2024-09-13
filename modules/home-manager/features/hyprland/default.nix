@@ -131,6 +131,7 @@
         # open apps
         "$mod, Return, exec, alacritty"
         "$hypr, F, exec, firefox"
+        "$hypr, Z, exec, zen"
         "$hypr, O, exec, opera"
         "$mod, Space, exec, rofi -show drun"
 

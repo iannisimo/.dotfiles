@@ -133,6 +133,7 @@
         "$hypr, F, exec, firefox"
         "$hypr, Z, exec, zen"
         "$hypr, O, exec, opera"
+        "$hypr, T, exec, telegram-desktop"
         "$mod, Space, exec, rofi -show drun"
 
         # Window management

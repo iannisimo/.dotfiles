@@ -22,7 +22,7 @@
 
     settings = {
 
-      "$TOUCHPAD" = true;
+      "$TOUCHPAD" = "cust0001:00-06cb:cdaa-touchpad";
 
       exec-once = [
         "swww init && swww img ${config.myHM.swww.imgPath}/${config.myHM.swww.img}"
@@ -92,8 +92,8 @@
           accel_profile = "adaptive";
         }
         {
-          name = "cust0001:00-06cb:cdaa-touchpad";
-          enabled = "$TOUCHPAD";
+          name = "$TOUCHPAD";
+          enabled = "true";
         }
       ];
 
@@ -161,8 +161,8 @@
         # Fn keys
         ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
         ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
-        "CTRL SUPER, XF86TouchpadToggle,             exec, hyprctl keyword '$TOUCHPAD' false -r"
-        "CTRL SUPER SHIFT, XF86TouchpadToggle,             exec, hyprctl keyword '$TOUCHPAD' true -r"
+        "CTRL SUPER, XF86TouchpadToggle,             exec, hyprctl keyword device[$TOUCHPAD]:enabled false"
+        "CTRL SUPER SHIFT, XF86TouchpadToggle,             exec, hyprctl keyword device[$TOUCHPAD]:enabled true"
         ", XF86Launch2, exec, rotate-screen"
         "$mod, XF86Launch2, exec, swww-cycle"
         "$hypr, XF86Launch2, exec, swww clear 181818"

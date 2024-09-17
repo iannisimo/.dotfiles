@@ -31,6 +31,11 @@
   "bash $EWW_SCRIPTS/get-active-workspace"
 )
 (
+  deflisten active-kb-layout
+  :initial ""
+  "bash $EWW_SCRIPTS/get-active-layout"
+)
+(
   defwidget workspaces []
   (
     box
@@ -93,6 +98,7 @@
     (tlp)
     (network)
     (battery)
+    (keyboard)
     (volume)
     (brightness)
     (powermenu)
@@ -187,6 +193,15 @@
         ''
       )
     )
+  )
+)
+
+(
+  defwidget keyboard []
+  (
+    label
+    :class "keyboard"
+    :text "${active-kb-layout}"
   )
 )
 

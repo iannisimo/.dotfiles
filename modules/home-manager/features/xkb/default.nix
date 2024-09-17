@@ -5,5 +5,5 @@
   inputs,
   ...
 }: {
-  home.file.".config/kbd/".source = ./config;
+  home.file.".config/xkb/".source = ./config;
 }

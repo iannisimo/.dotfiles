@@ -12,6 +12,7 @@
   myHM.hyprlock.enable = true;
   myHM.hypridle.enable = true;
   myHM.swww.enable = true;
+  myHM.xkb.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -70,8 +71,8 @@
       };
 
       input = {
-        kb_layout = "us,us";
-        kb_variant = "basic,colemak_dh";
+        kb_layout = "us,graphite,colemak_dh";
+        kb_variant = "basic";
         kb_model = "";
         kb_options = "shift:both_capslock_cancel,caps:numlock,grp:alts_toggle";
         kb_rules = "";

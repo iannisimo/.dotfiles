@@ -19,5 +19,10 @@ in
       cd $out/
       rm Background.jpg
       cp -r ${image} $out/Background.jpg
+      
+      substituteInPlace \
+        $out/theme.conf \
+        --replace-warn ForceHideCompletePassword=false ForceHideCompletePassword=true 
+
     '';
   }

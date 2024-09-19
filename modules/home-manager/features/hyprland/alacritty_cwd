@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+parent_pid=$(hyprctl activewindow -j | jq '.pid' -r)
+if [[ -z "$parent_pid" ]]; then
+  alacritty
+fi
+child_pid=$(pgrep -P "$parent_pid")
+if [[ -z "$child_pid" ]]; then
+  alacritty
+fi
+pushd /proc/"$child_pid"/cwd
+CWD=$(pwd -P)
+popd
+
+alacritty --working-directory "$CWD"

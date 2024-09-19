@@ -4,7 +4,9 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  alacritty_cwd = (lib.writeShellScript "alacritty_cwd" (builtins.readFile ./alacritty_cwd));
+in{
 
   services.swayosd.enable = true;
   myHM.eww.enable = true;
@@ -131,6 +133,7 @@
       bind = [
         # open apps
         "$mod, Return, exec, alacritty"
+        "#mod shift, Return, exec, ${alacritty_cwd}"
         "$hypr, F, exec, firefox"
         "$hypr, Z, exec, zen"
         "$hypr, O, exec, opera"

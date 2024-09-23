@@ -13,8 +13,6 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.kernelParams = [ "intel_iommu=on" ];
-
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ca0db07e-507f-4350-b9bc-6fa1b8c6754b";
       fsType = "ext4";

@@ -30,7 +30,7 @@ in{
       exec-once = [
         "swww init && swww img ${config.myHM.swww.imgPath}/${config.myHM.swww.img}"
         "nm-applet"
-        "blueman-tray"
+        "blueman-applet"
         "hypridle"
         "EWW_CONFIG=~/.config/eww EWW_SCRIPTS=~/.config/eww/scripts eww open bar"
         "${pkgs.activate-linux}/bin/activate-linux -d"
@@ -126,6 +126,10 @@ in{
         key_press_enables_dpms = true;
       };
 
+      cursor = {
+        inactive_timeout = 1;
+      };
+
       # keybindings      
       "$mod" = "SUPER";
       "$hypr" = "MOD2";
@@ -152,7 +156,7 @@ in{
         "$mod, P, pin"
 
         "$hypr, M, fullscreen"
-        "$hypr, T, togglefloating"
+        "$mod, T, togglefloating"
         "$mod, M, layoutmsg, swapwithmaster"
         "$hypr, right, layoutmsg, rollnext"
         "$hypr, left, layoutmsg, rollprev"
@@ -171,6 +175,7 @@ in{
         "$mod, XF86Launch2, exec, swww-cycle"
         "$hypr, XF86Launch2, exec, swww clear 181818"
         ", Print, exec, grimblast copy area"
+        "shift, Print, exec, grimblast save area - | feh -Zx. -"
       ]
       ++ map (n: "$mod SHIFT, ${toString n}, movetoworkspace, ${toString (
         if n == 0
@@ -214,6 +219,9 @@ in{
         "float, title:^(Winetricks.*)$" # Winetricks
         "float, class:^(firefox)$, title:^(Picture-in-Picture)$"
         "opacity 1 override 1 override, class:^(firefox)$, title:^(Picture-in-Picture)$"
+        "float, class:^(feh)$, title: feh_stdin"
+        "pin, class:^(feh)$, title: feh_stdin"
+        "keepaspectratio, class:^(feh)$, title: feh_stdin"
       ];
     };
   };
@@ -226,6 +234,7 @@ in{
       xdg-utils
 
       grimblast
+      feh
       blueman
       pavucontrol
       brightnessctl

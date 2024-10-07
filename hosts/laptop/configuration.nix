@@ -21,14 +21,78 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  
+  age.secrets.wpa-supplicant-env = {
+    file = "../../modules/nixos/features/agenix/secrets/wpa-supplicant-env.age";
+    mode = "644";
+    owner = "root";
+    group = "root";
+  };
 
   networking = {
     hostName = "simone_msi";
-    networkmanager = {
+    wireless = {
       enable = true;
-      wifi.macAddress = "stable-ssid"; # Set to 'random' to change on every connection
+      environmentFile = config.age.secrets.wpa-supplicant-env.path;
+      userControlled.enable = true;
+      networks = {
+        "eduroam" = {
+          auth = ''
+            key_mgmt=WPA-EAP
+            eap=PEAP
+            phase2="auth=MSCHAPV2"
+            identity="@USER_eduroam@"
+            password="@PSK_eduroam@"
+            ca_cert=/home/simone/Downloads/ca.cert
+            altsubject_match="DNS:aaas1.unipi.it"
+          '';
+        };
+        "WiFightClub" = {
+          auth = ''
+            key_mgmt=WPA2-PSK
+            psk=@PSK_WiFightClub@
+          '';
+        };
+      };
     };
+    networkmanager.enable = false;
+    #networkmanager = {
+    #  enable = false;
+    #  wifi.macAddress = "stable-ssid"; # Set to 'random' to change on every connection
+    #  unmanaged = [ "wlo1_ap" ];
+    #};
+    #wlanInterfaces = {
+    #  wlo1_sta = {
+    #    device = "wlo1";
+    #    mac = "12:34:56:78:ab:cd";
+    #    type = "managed";
+    #  };
+    #  wlo1_ap = {
+    #    device = "wlo1";
+    #    mac = "12:34:56:78:ab:ce";
+    #    type = "managed";
+    #  };
+    #};
+    #interfaces = {
+    #  wlo1_ap.ipv4.addresses = [
+    #    { address = "192.168.12.1"; prefixLength = 24; }
+    #  ];
+    #};
+    #firewall.interfaces.wlo1_ap.allowedTCPPorts = [ 5900 ];
   };
+
+  #services.hostapd = {
+  #  enable = true;
+  #  radios."wlo1_ap" = {
+  #    networks."wlo1_ap" = {
+  #      ssid = "vnc_ap";
+  #      authentication = {
+  #        mode = "wpa2-sha256";
+  #        wpaPassword = "testing_should_put_in_secret";
+  #      };
+  #    };
+  #  };
+  #};
 
   # MyNixOS Config
   myNixOS = {

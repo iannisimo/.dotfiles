@@ -4,7 +4,10 @@
   lib,
   ...
 }: let
-  eduroam_cert = builtins.readFile ./extra/eduroam.cert;
+  eduroam_cert = pkgs.writeTextFile {
+    name = "eduroam.cert";
+    text = builtins.readFile ./extra/eduroam.cert;
+  };
 in {
 
   age.secrets.wpa-supplicant-env = {
@@ -25,18 +28,33 @@ in {
       userControlled.enable = true;
       networks = {
         "eduroam" = {
+          authProtocols = [ "WPA-EAP" ];
           auth = ''
-            key_mgmt=WPA-EAP
             eap=PEAP
             phase2="auth=MSCHAPV2"
             identity="@USER_eduroam@"
             password="@PSK_eduroam@"
+          '';
+          extraConfig = ''
             ca_cert="${eduroam_cert}"
             altsubject_match="DNS:aaas1.unipi.it"
           '';
         };
         "WiFightClub" = {
           psk = "@PSK_WiFightClub@";
+        };
+        "DIRECT-SmallPP" = {
+          authProtocols = [ "WPA-PSK" ];
+          psk = "@PSK_DIRECT-SmallPP@";
+          extraConfig = ''
+            bssid=40:ec:99:a7:39:d9
+	          proto=RSN
+	          pairwise=CCMP
+	          mode=3
+	          mesh_fwding=1
+	          disabled=2
+            auth_alg=OPEN
+          '';
         };
       };
     };

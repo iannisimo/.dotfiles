@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 ethernet (){
-  nmcli d | grep ethernet | grep \ connected | wc -l
+  ip -j route get 192.0.2.0 | jq -r '.[0].dev | startswith("e")'
 }
 
 wifi (){
-  nmcli d | grep wifi | grep \ connected | wc -l
+  ip -j route get 192.0.2.0 | jq -r '.[0].dev | startswith("wl")'
 }
 
-if [ $(ethernet) -eq 1 ]; then
+if [ $(ethernet) == 'true' ]; then
   echo ""
-elif [ $(wifi) -eq 1 ]; then
+elif [ $(wifi) == 'true' ]; then
   echo ""
 else
   echo ""

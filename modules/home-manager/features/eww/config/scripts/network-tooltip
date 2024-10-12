@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# I ain'g got no time to port it to wpa_cli
 
 SSID=$(nmcli d | grep wifi | grep \ connected | head -n1 | awk '{print $4}')
 ETH_IFACE=$(nmcli d | grep ethernet | grep \ connected | head -n1 | awk '{print $1}')

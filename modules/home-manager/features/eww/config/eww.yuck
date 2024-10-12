@@ -295,14 +295,14 @@
 )
 
 (defpoll network_status :interval "5s" "$EWW_SCRIPTS/get-network")
-(defpoll network_tooltip :interval "5s" "$EWW_SCRIPTS/network-tooltip")
+; (defpoll network_tooltip :interval "5s" "$EWW_SCRIPTS/network-tooltip")
 
 (
   defwidget network [] 
   (
     label
     :class "network"
-    :tooltip network_tooltip
+;    :tooltip network_tooltip
     :text "${network_status}"
   )
 )

@@ -26,6 +26,11 @@ in {
       enable = true;
       environmentFile = config.age.secrets.wpa-supplicant-env.path;
       userControlled.enable = true;
+      extraConfig = ''
+        country=IT
+        p2p_go_ht40=1
+        device_name=DIRECT-SmallPP
+      '';
       networks = {
         "eduroam" = {
           authProtocols = [ "WPA-EAP" ];
@@ -45,7 +50,7 @@ in {
         };
         "DIRECT-SmallPP" = {
           authProtocols = [ "WPA-PSK" ];
-          psk = "@PSK_DIRECT-SmallPP@";
+          psk = "@PSK_DIRECT_SmallPP@";
           extraConfig = ''
             bssid=40:ec:99:a7:39:d9
 	          proto=RSN

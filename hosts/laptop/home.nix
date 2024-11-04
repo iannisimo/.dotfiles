@@ -19,6 +19,7 @@
   # myHM.spotify.enable = true;
   myHM.direnv.enable = true;
   myHM.zen-browser.enable = true;
+  myHM.easyeffects.enable = true;
 
   home = {
     username = "simone";

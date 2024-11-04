@@ -30,6 +30,7 @@ in {
         country=IT
         p2p_go_ht40=1
         device_name=DIRECT-SmallPP
+        persistent_reconnect=1
       '';
       networks = {
         "eduroam" = {
@@ -57,14 +58,20 @@ in {
 	          pairwise=CCMP
 	          mode=3
 	          mesh_fwding=1
-	          disabled=2
+            disabled=2
             auth_alg=OPEN
           '';
+        };
+        "Not-An-FBI-Van" = {
+          psk = "@PSK_Not_An_FBI_Van@";
         };
       };
     };
 
-    networkmanager.enable = false;
+    networkmanager = {
+      enable = true;
+      unmanaged = [ "wlo1" ];
+    };
 
     firewall = {
       enable = true;

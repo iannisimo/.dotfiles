@@ -58,6 +58,10 @@ in{
         "desc:Samsung Electric Company U28E590 HTPJ304532,2560x1440,10000x8560,1"
         # Dummy
         "desc:AOC 28E850,1280x800@30,11920x10280,1"
+        # headless down
+        "HEADLESS-down,highrr,10000x11080,1"
+        # headless right 
+        "HEADLESS-right,highrr,11920x10000,1"
         # AUTO
         ",highrr,auto,1"
       ];

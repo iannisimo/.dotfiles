@@ -20,6 +20,7 @@
   myHM.direnv.enable = true;
   myHM.zen-browser.enable = true;
   myHM.easyeffects.enable = true;
+  myHM.discord.enable = true;
 
   home = {
     username = "simone";

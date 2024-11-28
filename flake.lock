@@ -767,15 +767,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1731689537,
-        "narHash": "sha256-0wN39XFD5bVcNANh9uLoQYyKbp9r6xX+oON1qI+L9iI=",
-        "owner": "ch4og",
+        "lastModified": 1732758227,
+        "narHash": "sha256-HnYDRMstHOA8tYXiEHm4GqSzYJQN2H2Sf5mVJaQqpu0=",
+        "owner": "FBIGlowie",
         "repo": "zen-browser-flake",
-        "rev": "064be844324965da1d596a541fdd831efe4a3a32",
+        "rev": "96dfdd03bbfbf6e231442018e23ca4718673ae5d",
         "type": "github"
       },
       "original": {
-        "owner": "ch4og",
+        "owner": "FBIGlowie",
         "repo": "zen-browser-flake",
         "type": "github"
       }

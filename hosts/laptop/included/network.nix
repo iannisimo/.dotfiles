@@ -49,19 +49,19 @@ in {
         "WiFightClub" = {
           psk = "@PSK_WiFightClub@";
         };
-        "DIRECT-SmallPP" = {
-          authProtocols = [ "WPA-PSK" ];
-          psk = "@PSK_DIRECT_SmallPP@";
-          extraConfig = ''
-            bssid=40:ec:99:a7:39:d9
-	          proto=RSN
-	          pairwise=CCMP
-	          mode=3
-	          mesh_fwding=1
-            disabled=2
-            auth_alg=OPEN
-          '';
-        };
+        #"DIRECT-SmallPP" = {
+        #  authProtocols = [ "WPA-PSK" ];
+        #  psk = "@PSK_DIRECT_SmallPP@";
+        #  extraConfig = ''
+        #    bssid=40:ec:99:a7:39:d9
+	      #    proto=RSN
+	      #    pairwise=CCMP
+	      #    mode=3
+	      #    mesh_fwding=1
+        #    disabled=2
+        #    auth_alg=OPEN
+        #  '';
+        #};
         "Not-An-FBI-Van" = {
           psk = "@PSK_Not_An_FBI_Van@";
         };
@@ -73,25 +73,25 @@ in {
       unmanaged = [ "wlo1" ];
     };
 
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 5900 ];
-      allowedUDPPorts = [ 67 ];
-      interfaces."wlo1" = {
-        allowedTCPPorts = lib.mkForce [];
-        allowedUDPPorts = lib.mkForce [];
-      };
-    };
+    #firewall = {
+    #  enable = true;
+    #  allowedTCPPorts = [ 5900 ];
+    #  allowedUDPPorts = [ 67 ];
+    #  interfaces."wlo1" = {
+    #    allowedTCPPorts = lib.mkForce [];
+    #    allowedUDPPorts = lib.mkForce [];
+    #  };
+    #};
   };
 
   systemd.network = {
     enable = true;
-    networks = {
-      "p2p-wlo1" = {
-        matchConfig.Name = "p2p-wlo1-*";
-        address = [ "192.168.4.1/30" ];
-        networkConfig.DHCPServer = "yes";
-      };
-    };
+    #networks = {
+    #  "p2p-wlo1" = {
+    #    matchConfig.Name = "p2p-wlo1-*";
+    #    address = [ "192.168.4.1/30" ];
+    #    networkConfig.DHCPServer = "yes";
+    #  };
+    #};
   };
 }

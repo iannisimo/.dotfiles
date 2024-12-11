@@ -63,7 +63,7 @@ in{
         # headless right 
         "HEADLESS-right,highrr,11920x10000,1"
         # AUTO
-        ",highrr,auto,1"
+        ",preferred,auto,1"
       ];
 
       env = [
@@ -142,6 +142,7 @@ in{
         # open apps
         "$mod, Return, exec, alacritty"
         "$mod shift, Return, exec, ${alacritty_cwd}/bin/alacritty_cwd"
+        "$mod $hypr, l, exec, sleep 0.2 && hyprlock"
         "$hypr, F, exec, firefox"
         "$hypr, Z, exec, zen"
         "$hypr, O, exec, opera"

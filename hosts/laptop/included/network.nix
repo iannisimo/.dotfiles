@@ -73,15 +73,15 @@ in {
       unmanaged = [ "wlo1" ];
     };
 
-    #firewall = {
-    #  enable = true;
-    #  allowedTCPPorts = [ 5900 ];
-    #  allowedUDPPorts = [ 67 ];
-    #  interfaces."wlo1" = {
-    #    allowedTCPPorts = lib.mkForce [];
-    #    allowedUDPPorts = lib.mkForce [];
-    #  };
-    #};
+    firewall = {
+      enable = true;
+      #allowedTCPPorts = [  ];
+      allowedUDPPorts = [ 40118 ];
+      interfaces."wlo1" = {
+        allowedTCPPorts = lib.mkForce [];
+        allowedUDPPorts = lib.mkForce [];
+      };
+    };
   };
 
   systemd.network = {

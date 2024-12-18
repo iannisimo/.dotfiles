@@ -16,11 +16,12 @@
   myHM.git.enable = true;
   myHM.hyprland.enable = true;
   myHM.alacritty.enable = true;
-  # myHM.spotify.enable = true;
+  myHM.spotify.enable = true;
   myHM.direnv.enable = true;
   myHM.zen-browser.enable = true;
   myHM.easyeffects.enable = true;
   myHM.discord.enable = true;
+  myHM.livornowifi.enable = true;
 
   home = {
     username = "simone";

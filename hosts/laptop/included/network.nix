@@ -65,6 +65,9 @@ in {
         "Not-An-FBI-Van" = {
           psk = "@PSK_Not_An_FBI_Van@";
         };
+        "ComuneLivornoWifi" = {
+          authProtocols = [];
+        };
       };
     };
 

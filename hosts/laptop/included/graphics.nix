@@ -9,18 +9,16 @@
       "/run/opengl-driver/lib"
       "/run/opengl-driver-32/lib"
     ];
-    VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    VDPAU_DRIVER = lib.mkIf config.hardware.graphics.enable (lib.mkDefault "va_gl");
   };  
 
   environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia
     glxinfo
   ];
   
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
-    driSupport = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-vaapi-driver
       libvdpau-va-gl
@@ -57,7 +55,7 @@
 
   specialisation."iGPU".configuration = {
     system.nixos.tags = [ "iGPU" ];
-    hardware.opengl.extraPackages = lib.mkAfter [ pkgs.mesa.drivers ];
+    hardware.graphics.extraPackages = lib.mkAfter [ pkgs.mesa.drivers ];
     hardware.nvidia = lib.mkForce {};
     services.xserver.videoDrivers = lib.mkForce [ "modesetting" ];
     boot.extraModprobeConfig = ''

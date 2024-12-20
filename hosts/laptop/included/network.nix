@@ -24,7 +24,7 @@ in {
 
     wireless = {
       enable = true;
-      environmentFile = config.age.secrets.wpa-supplicant-env.path;
+      secretsFile = config.age.secrets.wpa-supplicant-env.path;
       userControlled.enable = true;
       extraConfig = ''
         country=IT
@@ -33,13 +33,26 @@ in {
         persistent_reconnect=1
       '';
       networks = {
+        "UniPisa" = {
+          authProtocols = [ "WPA-EAP" ];
+          auth = ''
+            eap=PEAP
+            phase2="auth=MSCHAPV2"
+            identity="ext:USER_eduroam"
+            password="ext:PSK_eduroam"
+          '';
+          extraConfig = ''
+            ca_cert="${eduroam_cert}"
+            altsubject_match="DNS:aaas1.unipi.it"
+          '';
+        };
         "eduroam" = {
           authProtocols = [ "WPA-EAP" ];
           auth = ''
             eap=PEAP
             phase2="auth=MSCHAPV2"
-            identity="@USER_eduroam@"
-            password="@PSK_eduroam@"
+            identity="ext:USER_eduroam"
+            password="ext:PSK_eduroam"
           '';
           extraConfig = ''
             ca_cert="${eduroam_cert}"
@@ -47,11 +60,11 @@ in {
           '';
         };
         "WiFightClub" = {
-          psk = "@PSK_WiFightClub@";
+          psk = "ext:PSK_WiFightClub";
         };
         #"DIRECT-SmallPP" = {
         #  authProtocols = [ "WPA-PSK" ];
-        #  psk = "@PSK_DIRECT_SmallPP@";
+        #  psk = "ext:PSK_DIRECT_SmallPP";
         #  extraConfig = ''
         #    bssid=40:ec:99:a7:39:d9
 	      #    proto=RSN
@@ -63,7 +76,7 @@ in {
         #  '';
         #};
         "Not-An-FBI-Van" = {
-          psk = "@PSK_Not_An_FBI_Van@";
+          psk = "ext:PSK_Not_An_FBI_Van";
         };
         "ComuneLivornoWifi" = {
           authProtocols = [];

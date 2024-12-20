@@ -9,7 +9,7 @@
   programs.dconf.enable = true;
 
   services.udev.packages = with pkgs; [ 
-    gnome.gnome-settings-daemon 
+    gnome-settings-daemon 
   ];
   services.gnome.gnome-keyring.enable = true;  
   services.dbus.enable = true;
@@ -17,9 +17,9 @@
   environment.systemPackages = with pkgs; [
     dbus
     xdg-utils
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     gnomeExtensions.appindicator
-    gnome.gnome-tweaks
+    gnome-tweaks
     xdg-desktop-portal
     xdg-desktop-portal-gnome
   ];
@@ -30,7 +30,6 @@
     gedit
     epiphany
     evince
-  ]) ++ (with pkgs.gnome; [
     cheese
     gnome-music
     gnome-terminal

@@ -28,9 +28,9 @@ in {
       userControlled.enable = true;
       extraConfig = ''
         country=IT
-        p2p_go_ht40=1
-        device_name=DIRECT-SmallPP
-        persistent_reconnect=1
+        # p2p_go_ht40=1
+        # device_name=DIRECT-SmallPP
+        # persistent_reconnect=1
       '';
       networks = {
         "UniPisa" = {
@@ -38,7 +38,7 @@ in {
           auth = ''
             eap=PEAP
             phase2="auth=MSCHAPV2"
-            identity="ext:USER_eduroam"
+            identity="s.ianniciello"
             password="ext:PSK_eduroam"
           '';
           extraConfig = ''
@@ -60,26 +60,19 @@ in {
           '';
         };
         "WiFightClub" = {
-          psk = "ext:PSK_WiFightClub";
+          pskRaw = "ext:PSK_WiFightClub";
         };
-        #"DIRECT-SmallPP" = {
-        #  authProtocols = [ "WPA-PSK" ];
-        #  psk = "ext:PSK_DIRECT_SmallPP";
-        #  extraConfig = ''
-        #    bssid=40:ec:99:a7:39:d9
-	      #    proto=RSN
-	      #    pairwise=CCMP
-	      #    mode=3
-	      #    mesh_fwding=1
-        #    disabled=2
-        #    auth_alg=OPEN
-        #  '';
-        #};
         "Not-An-FBI-Van" = {
-          psk = "ext:PSK_Not_An_FBI_Van";
+          pskRaw = "ext:PSK_Not_An_FBI_Van";
         };
         "ComuneLivornoWifi" = {
           authProtocols = [];
+        };
+        "MartinRouterStudio2.4" = {
+          pskRaw = "ext:PSK_MRS";
+        };
+        "MartinRouterStudio" = {
+          pskRaw = "ext:PSK_MRS";
         };
       };
     };
@@ -102,12 +95,5 @@ in {
 
   systemd.network = {
     enable = true;
-    #networks = {
-    #  "p2p-wlo1" = {
-    #    matchConfig.Name = "p2p-wlo1-*";
-    #    address = [ "192.168.4.1/30" ];
-    #    networkConfig.DHCPServer = "yes";
-    #  };
-    #};
   };
 }

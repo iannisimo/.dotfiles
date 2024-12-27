@@ -5,7 +5,7 @@
   ...
 }:
 let
-  zen-browser = inputs.zen-browser.packages.${pkgs.system}.specific;
+  zen-browser = inputs.zen-browser.packages.${pkgs.system};
 in {
   home.packages = [
     zen-browser

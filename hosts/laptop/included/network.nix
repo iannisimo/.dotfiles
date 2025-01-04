@@ -33,6 +33,9 @@ in {
         # persistent_reconnect=1
       '';
       networks = {
+        "HotelRex" = {
+          pskRaw = "ext:PSK_HotelRex";
+        };
         "UniPisa" = {
           authProtocols = [ "WPA-EAP" ];
           auth = ''

@@ -28,6 +28,7 @@ in {
       userControlled.enable = true;
       extraConfig = ''
         country=IT
+        p2p_disabled=1
         # p2p_go_ht40=1
         # device_name=DIRECT-SmallPP
         # persistent_reconnect=1
@@ -35,6 +36,12 @@ in {
       networks = {
         "HotelRex" = {
           pskRaw = "ext:PSK_HotelRex";
+        };
+        "SRV" = {
+          pskRaw = "ext:PSK_SRV";
+          extraConfig = ''
+            scan_ssid=1
+          '';
         };
         "UniPisa" = {
           authProtocols = [ "WPA-EAP" ];
@@ -61,6 +68,9 @@ in {
             ca_cert="${eduroam_cert}"
             altsubject_match="DNS:aaas1.unipi.it"
           '';
+        };
+        "StreamingZone" = {
+          pskRaw = "ext:PSK_WiFightClub";
         };
         "WiFightClub" = {
           pskRaw = "ext:PSK_WiFightClub";

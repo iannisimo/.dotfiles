@@ -33,6 +33,8 @@ in {
     nix-search-cli
     bitwarden-cli
     my_zotero
+    usbutils
+    p7zip
   ];
 
   home.sessionVariables = {

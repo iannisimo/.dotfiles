@@ -26,8 +26,8 @@
         ms-python.python
         ms-python.vscode-pylance
    
-        # ms-vscode.cpptools
-        # ms-vscode.cpptools-extension-pack
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
         ms-vscode.makefile-tools
         twxs.cmake
    
@@ -44,19 +44,23 @@
           version = "0.12.0";
           sha256 = "sha256-uxsbqBJEaQxf+DmSdi2uXGK3J+qmzdUyYohTaKqpe2k=";
         }
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "yuck";
           publisher = "eww-yuck";
           version = "0.0.3";
           sha256 = "sha256-DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
         }
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-server";
           publisher = "ms-vscode";
           version = "1.6.2024041609";
           sha256 = "sha256-2MwWoZlN9uVSPbN5K+yBXuCwTIpgoNQ1AEadxUn40zQ=";
+        }
+        {
+          name = "prolog";
+          publisher = "rebornix";
+          version = "0.0.4";
+          sha256 = "sha256-SZAaG3dFlDbA46s+i36CMBOU5vJ+1bgTgk+TTyi+yhA=";
         }
      ];
     })

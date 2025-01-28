@@ -38,6 +38,7 @@
       opera
       inotify-tools
       dust
+      binwalk
     ];
   };
 }

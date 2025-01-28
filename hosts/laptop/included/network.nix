@@ -49,7 +49,7 @@ in {
             eap=PEAP
             phase2="auth=MSCHAPV2"
             identity="s.ianniciello"
-            password="ext:PSK_eduroam"
+            password=ext:PSK_eduroam
           '';
           extraConfig = ''
             ca_cert="${eduroam_cert}"
@@ -61,8 +61,8 @@ in {
           auth = ''
             eap=PEAP
             phase2="auth=MSCHAPV2"
-            identity="ext:USER_eduroam"
-            password="ext:PSK_eduroam"
+            identity="s.ianniciello"
+            password=ext:PSK_eduroam
           '';
           extraConfig = ''
             ca_cert="${eduroam_cert}"

@@ -35,6 +35,7 @@ in {
     my_zotero
     usbutils
     p7zip
+    aria
   ];
 
   home.sessionVariables = {

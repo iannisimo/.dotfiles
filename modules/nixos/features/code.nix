@@ -18,15 +18,17 @@
    
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-containers
+
+        golang.go
    
         ms-toolsai.jupyter
         ms-toolsai.vscode-jupyter-slideshow
         ms-toolsai.vscode-jupyter-cell-tags
         ms-toolsai.jupyter-renderers
         ms-python.python
-        ms-python.vscode-pylance
+        # ms-python.vscode-pylance # bugged
    
-        ms-vscode.cpptools
+        # ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
         ms-vscode.makefile-tools
         twxs.cmake

@@ -35,6 +35,7 @@
         "input"
         "dialout"
         "disk"
+        "docker"
       ];
       shell = pkgs.fish;
     };
@@ -119,6 +120,8 @@
   services.blueman.enable = true;
   services.printing.enable = true;
   services.acpid.enable = true;
+
+  virtualisation.docker.enable = true;
 
   #  -----------------------------------
   # |            DANGER ZONE            |

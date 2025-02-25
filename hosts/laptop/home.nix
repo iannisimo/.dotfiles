@@ -22,6 +22,7 @@
   myHM.easyeffects.enable = true;
   myHM.discord.enable = true;
   myHM.livornowifi.enable = true;
+  myHM.quickshell.enable = true;
 
   home = {
     username = "simone";

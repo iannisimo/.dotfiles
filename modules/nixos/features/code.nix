@@ -26,6 +26,7 @@
         ms-toolsai.vscode-jupyter-cell-tags
         ms-toolsai.jupyter-renderers
         ms-python.python
+        batisteo.vscode-django
         # ms-python.vscode-pylance # bugged
    
         # ms-vscode.cpptools

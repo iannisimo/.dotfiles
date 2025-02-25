@@ -18,6 +18,12 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     zen-browser = {
       url = "github:iannisimo/zen-browser-flake";
       inputs.nixpkgs.follows = "unstable-nixpkgs";

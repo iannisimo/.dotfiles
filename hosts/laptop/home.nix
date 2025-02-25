@@ -14,7 +14,7 @@
   myHM.gnome.enable = true;
   #myHM.tex.enable = true;
   myHM.git.enable = true;
-  myHM.hyprland.enable = true;
+  myHM.new_hyprland.enable = true;
   myHM.alacritty.enable = true;
   # myHM.spotify.enable = true;
   myHM.direnv.enable = true;

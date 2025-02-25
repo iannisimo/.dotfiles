@@ -11,12 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    #hyprland = {
-    #  type = "git";
-    #  url = "https://github.com/hyprwm/hyprland";
-    #  submodules = true;
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    hyprland = {
+     type = "git";
+     url = "https://github.com/hyprwm/hyprland?rev=882f7ad7d2bbfc7440d0ccaef93b1cdd78e8e3ff";
+     submodules = true;
+     inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     quickshell = {
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";

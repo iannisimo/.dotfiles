@@ -5,14 +5,16 @@
   inputs,
   ...
 }: {
-  nixpkgs.overlays = [
-    inputs.nvim.overlays.default
-  ];
+  # nixpkgs.overlays = [
+  #   inputs.nvim.overlays.default
+  # ];
 
   environment.systemPackages = with pkgs; [
-    ( nvim-pkg.override {
-      vimAlias = true;
-      viAlias = true;
-   })
+   #  ( nvim-pkg.override {
+   #    vimAlias = true;
+   #    viAlias = true;
+   # })
+    neovim
+    ripgrep
   ];
 }

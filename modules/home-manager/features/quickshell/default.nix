@@ -8,13 +8,13 @@
     buildInputs = with pkgs; oldAttrs.buildInputs ++ [
         kdePackages.qtmultimedia
         kdePackages.qt5compat
-        # libsForQt5.qt5.qtgraphicaleffects
       ];
     }
   );
 in {
   home.packages = with pkgs; [
     myQuickshell
+    unstable.matugen
 #    wl-clipboard
 #    swww # wallpaper
 #    cliphist

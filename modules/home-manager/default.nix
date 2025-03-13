@@ -37,4 +37,18 @@ in {
     []
     ++ features
     ++ bundles;
+
+  config = {
+    nixpkgs = {
+      overlays = [
+        (final: prev: {
+          unstable = import inputs.unstable-nixpkgs {
+            system = pkgs.system;
+            config.allowUnfree = true;
+          };
+        })
+      ];
+      config.allowUnfree = true;
+    };
+  };
 }

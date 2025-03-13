@@ -5,6 +5,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    texlive.combined.scheme-small
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         
@@ -12,9 +13,9 @@
         arrterian.nix-env-selector
         mkhl.direnv
    
-        github.copilot
-        github.copilot-chat
         donjayamanne.githistory
+        streetsidesoftware.code-spell-checker
+        chrischinchilla.vscode-pandoc
    
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-containers
@@ -39,6 +40,7 @@
         hookyqr.beautify
         tomoki1207.pdf
         ms-vscode.hexeditor
+        bradlc.vscode-tailwindcss
    
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -64,6 +66,12 @@
           publisher = "rebornix";
           version = "0.0.4";
           sha256 = "sha256-SZAaG3dFlDbA46s+i36CMBOU5vJ+1bgTgk+TTyi+yhA=";
+        }
+        {
+          name = "postcss";
+          publisher = "csstools";
+          version = "1.0.9";
+          sha256 = "sha256-5pGDKme46uT1/35WkTGL3n8ecc7wUBkHVId9VpT7c2U=";
         }
      ];
     })

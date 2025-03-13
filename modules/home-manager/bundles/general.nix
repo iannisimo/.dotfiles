@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let 
-  my_zotero = inputs.unstable-nixpkgs.legacyPackages.${pkgs.system}.zotero;
+
 in {
   nixpkgs = {
     config = {
@@ -32,10 +32,11 @@ in {
     nmap
     nix-search-cli
     bitwarden-cli
-    my_zotero
+    unstable.zotero
     usbutils
     p7zip
     aria
+    ripgrep
   ];
 
   home.sessionVariables = {

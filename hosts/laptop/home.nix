@@ -18,6 +18,7 @@
   myHM.alacritty.enable = true;
   # myHM.spotify.enable = true;
   myHM.direnv.enable = true;
+  myHM.nvim.enable = true;
   myHM.zen-browser.enable = true;
   myHM.easyeffects.enable = true;
   myHM.discord.enable = true;

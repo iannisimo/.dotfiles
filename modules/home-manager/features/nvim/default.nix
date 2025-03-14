@@ -59,7 +59,7 @@ in
     ];
   };
 
-  xdg.configFile."nvim/lua".source = ./lua;
+  xdg.configFile."nvim".source = ./nvim;
 
   xdg.configFile."nvim/lua/kidsan/init.lua".text = ''
     require("kidsan.set")

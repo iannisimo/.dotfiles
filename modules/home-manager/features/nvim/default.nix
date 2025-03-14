@@ -44,6 +44,8 @@ in
     extraPackages = with pkgs; [
       ripgrep
       fd
+      gcc
+      cargo
       lua-language-server
       stylua
       rust-analyzer-unwrapped

@@ -41,7 +41,7 @@ in
       treesitterWithGrammars
     ];
 
-    extraPackages = [
+    extraPackages = with pkgs; [
       ripgrep
       fd
       lua-language-server

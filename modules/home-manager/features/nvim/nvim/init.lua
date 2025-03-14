@@ -22,4 +22,4 @@ require("lazy").setup("plugins", {
         fallback = false,
     }
 })
-require("treesitter-fix-nix")
+-- require("treesitter-fix-nix")

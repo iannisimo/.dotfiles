@@ -63,7 +63,7 @@ in
     recursive = true;
   };
 
-  home.file."./.config/nvim/lua/kidsan/init.lua".text = ''
+  home.file."./.config/nvim/lua/treesitter-nix/init.lua".text = ''
     vim.opt.runtimepath:append("${treesitter-parsers}")
   '';
 

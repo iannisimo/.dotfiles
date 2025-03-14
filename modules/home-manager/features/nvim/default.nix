@@ -58,17 +58,18 @@ in
     ];
   };
 
-  xdg.configFile."nvim".source = ./nvim;
+  home.file."./.config/nvim/" = {
+    source = ./nvim;
+    recursive = true;
+  };
 
-  xdg.configFile."nvim/lua/kidsan/init.lua".text = ''
-    require("kidsan.set")
-    require("kidsan.remap")
+  home.file."./.config/nvim/lua/kidsan/init.lua".text = ''
     vim.opt.runtimepath:append("${treesitter-parsers}")
   '';
 
   # Treesitter is configured as a locally developed module in lazy.nvim
   # we hardcode a symlink here so that we can refer to it in our lazy config
-  xdg.dataHome."nvim/nix/nvim-treesitter/" = {
+  home.file."./.local/share/nvim/nix/nvim-treesitter/" = {
     recursive = true;
     source = treesitterWithGrammars;
   };

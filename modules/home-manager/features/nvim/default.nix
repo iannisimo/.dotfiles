@@ -1,57 +1,77 @@
-{ pkgs, ... }:
-let
-  treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
-    p.bash
-    p.comment
-    p.css
-    p.dockerfile
-    p.fish
-    p.gitattributes
-    p.gitignore
-    p.go
-    p.gomod
-    p.gowork
-    p.hcl
-    p.javascript
-    p.jq
-    p.json5
-    p.json
-    p.lua
-    p.make
-    p.markdown
-    p.nix
-    p.python
-    p.rust
-    p.toml
-    p.typescript
-    p.vue
-    p.yaml
-  ]));
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  ts = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+  parsers = pkgs.symlinkJoin {
+    name = "nvim-treesitter";
+    paths = [ts ts.dependencies];
+  };
+  plugins = with pkgs.vimPlugins; [
+    nvim-treesitter-textobjects 
+    parsers 
+    # (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
+    #   c
+    #   cpp
+    #   lua
+    #   nix
+    #   json
+    #   javascript
+    #   jsx
+    #   typescript
+    #   css
+    #   scss
+    #   bash
+    # ]))
+    nvim-lspconfig
+    nvim-ts-autotag
+  ];
+  mkEntryFromDrv = drv:
+    if lib.isDerivation drv then
+      { name = "${lib.getName drv}"; path = drv; }
+    else
+      drv;
+  lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
+in {
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
+  xdg.dataFile."nvim_plugins" = {
+    source = lazyPath;
+    recursive = true;
+  };
+  # xdg.dataFile."nvim_plugins/nvim-treesitter/parser".source =
+  #   let
+  #     parsers = pkgs.symlinkJoin {
+  #       name = "treesitter-parsers";
+  #       paths = (pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies);
+  #     };
+  #   in
+  #   "${parsers}/parser";
+
+
   programs.neovim = {
+    defaultEditor = true;
     enable = true;
-    vimAlias = true;
     viAlias = true;
-    coc.enable = false;
-    withNodeJs = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     withPython3 = true;
-
-    plugins = [
-      treesitterWithGrammars
-    ];
-
+    withNodeJs = true;
     extraPackages = with pkgs; [
+      # Helpers
       ripgrep
       fd
-      gcc
-      cargo
-      lua-language-server
-      stylua
-      rust-analyzer-unwrapped
-      black
-      nodejs_22
-      gh
+      lazygit
+      gdu
+      bottom
+      wl-clipboard
+      # LS
+      lua-language-server stylua # lua
+      nil # NIX
+      markdownlint-cli2 marksman # markdown
     ];
   };
 }

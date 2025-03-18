@@ -155,8 +155,8 @@ in {
         "$hypr shift, C, layoutmsg, orientationcenter"
 
         # Fn keys
-        ", Print, exec, grimblast copy area"
-        "shift, Print, exec, grimblast save area - | feh -Zx. -"
+        ", Print, exec, ${pkgs.grimblast}/bin/grimblast copy area"
+        "shift, Print, exec, g${pkgs.grimblast}/bin/rimblast save area - | ${pkgs.feh}/bin/feh -Zx. -"
       ]
         ++ map (n: "$mod SHIFT, ${toString n}, movetoworkspace, ${toString (
           if n == 0

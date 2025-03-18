@@ -68,7 +68,7 @@ in {
 
       monitor = [
         # Internal
-        "eDP-1,1920x1080@60,10000x10000,1"
+        "eDP-1,1920x1080@60,0x0,1"
         # AUTO
         ",preferred,auto,1"
       ];
@@ -111,6 +111,19 @@ in {
         inactive_timeout = 1;
       };
 
+      windowrulev2 = [
+        # No Gaps When Only 
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
+      
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
       "$mod" = "SUPER";
       "$hypr" = "MOD2";
 
@@ -119,6 +132,7 @@ in {
         "$mod shift, Return, exec, ${alacritty_cwd}/bin/alacritty_cwd"
         "$hypr, Z, exec, zen"
         "$hypr, T, exec, telegram-desktop"
+        "$mod, Space, exec, rofi -show drun"
 
         "$mod, w, killactive"
         "$mod, M, layoutmsg, swapwithmaster"
@@ -139,6 +153,10 @@ in {
         "$hypr shift, up, layoutmsg, orientationtop"
         "$hypr shift, down, layoutmsg, orientationbottom"
         "$hypr shift, C, layoutmsg, orientationcenter"
+
+        # Fn keys
+        ", Print, exec, grimblast copy area"
+        "shift, Print, exec, grimblast save area - | feh -Zx. -"
       ]
         ++ map (n: "$mod SHIFT, ${toString n}, movetoworkspace, ${toString (
           if n == 0
@@ -155,8 +173,6 @@ in {
         "$mod, mouse:272, movewindow"
         "$hypr, mouse:272, resizewindow"
       ];
-
-
     };
   };
 
@@ -169,4 +185,6 @@ in {
       hyprpanel
     ];
   };
+
+  myHM.rofi.enable = true;
 }

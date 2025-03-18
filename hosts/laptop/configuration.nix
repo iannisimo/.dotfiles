@@ -81,7 +81,7 @@
 
 
   # My Services
-  myNixOS.services.tlp.enable = true;
+  myNixOS.services.power-mgmt.enable = true;
   myNixOS.services.isw.enable = true;
   
   # Services

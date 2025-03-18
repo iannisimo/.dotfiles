@@ -101,7 +101,7 @@
   myNixOS.ssh.enable = true;
 
   # My Services
-  # myNixOS.services.tlp.enable = true;
+  # myNixOS.services.power-mgmt.enable = true;
   myNixOS.services.cloudflared = {
     enable = true;
     age-file = "desktop-cloudflared.age";

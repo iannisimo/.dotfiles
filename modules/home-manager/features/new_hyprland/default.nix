@@ -169,6 +169,17 @@ in {
           else n
         )}") [1 2 3 4 5 6 7 8 9 0];
 
+      binde = [
+        ", XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer -i 5"
+        ", XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer -d 5"
+        ", XF86AudioMute, exec, ${pkgs.pamixer}/bin/pamixer -t"
+        "SHIFT, XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer --default-source -i 5"
+        "SHIFT, XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer --default-source -d 5"
+        ", XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source -t"
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -e 10 set +5%"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -e 10 set 5%-"
+      ];
+
       bindm = [
         "$mod, mouse:272, movewindow"
         "$hypr, mouse:272, resizewindow"

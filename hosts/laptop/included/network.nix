@@ -32,10 +32,4 @@ in {
       };
     };
   };
-
-  systemd.network = {
-    enable = true;
-  };
-
-  boot.initrd.systemd.network.wait-online.anyInterface = true;
 }

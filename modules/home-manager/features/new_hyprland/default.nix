@@ -176,8 +176,8 @@ in {
         "SHIFT, XF86AudioRaiseVolume, exec, ${pkgs.pamixer}/bin/pamixer --default-source -i 5"
         "SHIFT, XF86AudioLowerVolume, exec, ${pkgs.pamixer}/bin/pamixer --default-source -d 5"
         ", XF86AudioMicMute, exec, ${pkgs.pamixer}/bin/pamixer --default-source -t"
-        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl -e 10 set +5%"
-        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl -e 10 set 5%-"
+        ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%+ -e 2"
+        ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 5%- -e 2"
       ];
 
       bindm = [

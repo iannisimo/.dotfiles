@@ -6,8 +6,8 @@
   age.secrets.mopidy = {
     file = ./agenix/secrets/mopidy.age;
     mode = "600";
-    owner = "root";
-    group = "root";
+    owner = "mopidy";
+    group = "mopidy";
   };
 
   services.mopidy = {

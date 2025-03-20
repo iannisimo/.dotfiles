@@ -1,13 +1,11 @@
 {
 pkgs,
-config,
-lib,
 inputs,
 ...
 }:
 let
   hyprland = inputs.hyprland.packages.${pkgs.system}.default;
-  hyprpanel = inputs.hyprpanel.packages.${pkgs.system}.default;
+  # hyprpanel = inputs.hyprpanel.packages.${pkgs.system}.default;
   xdg-desktop-portal-hyprland = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   alacritty_cwd = pkgs.writeShellScriptBin "alacritty_cwd"
     ''
@@ -47,10 +45,6 @@ in {
       };
 
       "$TOUCHPAD" = "cust0001:00-06cb:cdaa-touchpad";
-
-      exec-once = [
-        "hyprpanel"
-      ];
 
       general = {
         layout = "master";
@@ -195,9 +189,61 @@ in {
       xdg-desktop-portal-hyprland
       dbus
       xdg-utils
-      hyprpanel
     ];
   };
 
   myHM.rofi.enable = true;
+
+  # HyprPanel
+
+  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+
+  programs.hyprpanel = {
+    enable = true;
+    hyprland.enable = true;
+    overlay.enable = true;
+    overwrite.enable = true;
+    layout = {
+      "bar.layouts" = {
+        "0" = {
+          left = [ "dashboard" "workspaces" "windowtitle" ];
+          middle = [ "media" ];
+          right = [ "volume" "netstat" "bluetooth" "battery" "systray" "clock" "notifications" ];
+        };
+      };
+    };
+    settings = {
+      wallpaper = {
+        enable = true;
+        image = (builtins.path {path = ./wallpapers/wp_idiots.png;});
+      };
+      theme = {
+        font.size = "1rem";
+        bar = {
+          floating = true;
+          transparent = true;
+          outer_spacing = "0.4rem";
+        };
+      };
+    
+      bar = {
+        customModules = {
+          netstat = {
+            dynamicIcon = true;
+            rateUnit = "MiB";
+            labelType = "full";
+            label = true;
+            leftClick = "menu:network";
+          };
+        };
+        clock.format = "%a %b %d  %H:%M:%S";
+      };
+      menus = {
+        power.powerProfileService = "tlp";
+        clock.weather.enabled = false;
+        clock.time.military = true;
+      };
+    };
+  };
 }
+

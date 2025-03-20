@@ -73,6 +73,7 @@
   myNixOS.sonicwall.enable = true;
 
   myNixOS.ssh.enable = true;
+  myNixOS.mopidy.enable = true;
 
   # disabledModules = [
   #   "security/pam.nix"

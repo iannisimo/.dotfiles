@@ -24,4 +24,8 @@
   };
 in {
   home.packages = [ spicetify ];
+
+  programs.ncmpcpp = {
+    enable = true;
+  };
 }

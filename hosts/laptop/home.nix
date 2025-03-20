@@ -16,7 +16,7 @@
   myHM.git.enable = true;
   myHM.new_hyprland.enable = true;
   myHM.alacritty.enable = true;
-  # myHM.spotify.enable = true;
+  myHM.spotify.enable = true;
   myHM.direnv.enable = true;
   myHM.nvim.enable = true;
   myHM.zen-browser.enable = true;

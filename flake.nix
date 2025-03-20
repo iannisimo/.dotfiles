@@ -55,10 +55,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #spicetify-nix = {
-    #  url = "github:Gerg-L/spicetify-nix";
-    #  inputs.nixpkgs.follows = "unstable-nixpkgs";
-    #};
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     isw-nix = {
       url = "github:iannisimo/isw-nix";

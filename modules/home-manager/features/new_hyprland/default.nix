@@ -206,8 +206,8 @@ in {
     layout = {
       "bar.layouts" = {
         "0" = {
-          left = [ "dashboard" "workspaces" "windowtitle" ];
-          middle = [ "media" ];
+          left = [ "power" "hyprsunset" "media" ];
+          middle = [ "workspaces" ];
           right = [ "volume" "netstat" "bluetooth" "battery" "systray" "clock" "notifications" ];
         };
       };
@@ -215,6 +215,7 @@ in {
     settings = {
       wallpaper = {
         enable = true;
+        pywal = true;
         image = (builtins.path {path = ./wallpapers/wp_idiots.png;});
       };
       theme = {
@@ -235,11 +236,17 @@ in {
             label = true;
             leftClick = "menu:network";
           };
+          hyprsunset = {
+            label = false;
+            temperature = "5000K";
+          };
         };
         clock.format = "%a %b %d  %H:%M:%S";
+        media.show_active_only = true;
       };
       menus = {
         power.powerProfileService = "tlp";
+        power.confirmation = false;
         clock.weather.enabled = false;
         clock.time.military = true;
       };

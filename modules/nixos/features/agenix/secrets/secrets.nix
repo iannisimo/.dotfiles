@@ -10,4 +10,5 @@ in {
   "unipi-ct.age".publicKeys = simone;
   "connect-tunnel.age".publicKeys = simone;
   "wpa-supplicant-env.age".publicKeys = simone;
+  "mopidy.age".publicKeys = simone;
 }

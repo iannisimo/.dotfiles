@@ -12,7 +12,7 @@
 
   services.mopidy = {
     enable = true;
-    extensionPackages = with pkgs; [ mopidy-spotify ];
+    extensionPackages = with pkgs; [ mopidy-spotify mopidy-iris ];
     extraConfigFiles = [ config.age.secrets.mopidy.path ];
   };
 }

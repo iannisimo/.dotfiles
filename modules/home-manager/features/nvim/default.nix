@@ -68,6 +68,7 @@ in {
       pnglatex
       plotly
       pyperclip
+      ipykernel
       unidecode
       black
       isort

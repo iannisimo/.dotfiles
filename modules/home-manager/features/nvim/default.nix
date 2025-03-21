@@ -59,6 +59,20 @@ in {
     vimAlias = true;
     vimdiffAlias = true;
     withPython3 = true;
+    extraPython3Packages = (ps: with ps; [
+      pynvim
+      jupyter-client
+      ueberzug
+      pillow
+      cairosvg
+      pnglatex
+      plotly
+      pyperclip
+      unidecode
+      black
+      isort
+    ]);
+
     withNodeJs = true;
     extraPackages = with pkgs; [
       # Helpers

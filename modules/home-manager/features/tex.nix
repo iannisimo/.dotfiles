@@ -6,11 +6,12 @@
 let
   tex = (
     pkgs.texlive.combine {
-      inherit (pkgs.texlive) scheme-full;
+      inherit (pkgs.texlive) scheme-small;
     }
   );
 in {
   home.packages = [
     tex
+    pkgs.zathura
   ];
 }

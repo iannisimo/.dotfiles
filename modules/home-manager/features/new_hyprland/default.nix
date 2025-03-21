@@ -48,12 +48,14 @@ in {
 
       general = {
         layout = "master";
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 1;
+        gaps_out = 1;
       };
 
       decoration = {
         rounding = 5;
+        active_opacity=0.95;
+        inactive_opacity=0.8;
       };
 
       master = {

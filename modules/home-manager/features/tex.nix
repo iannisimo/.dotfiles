@@ -6,7 +6,7 @@
 let
   tex = (
     pkgs.texlive.combine {
-      inherit (pkgs.texlive) scheme-small;
+      inherit (pkgs.texlive) scheme-small latexmk;
     }
   );
 in {

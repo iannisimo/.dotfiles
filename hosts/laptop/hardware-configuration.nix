@@ -10,8 +10,8 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [ "kvm-intel" "msi-ec" ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ca0db07e-507f-4350-b9bc-6fa1b8c6754b";

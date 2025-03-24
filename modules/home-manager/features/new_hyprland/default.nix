@@ -248,6 +248,7 @@ in {
       };
       menus = {
         power.powerProfileService = "tlp";
+        power.lowBatteryNotification = true;
         power.confirmation = false;
         clock.weather.enabled = false;
         clock.time.military = true;

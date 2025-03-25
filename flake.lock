@@ -735,11 +735,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742461815,
-        "narHash": "sha256-z0aoC3BduqR5tud0Gjg4JDojT0IAIRsDE7eM4dSkoho=",
+        "lastModified": 1742897814,
+        "narHash": "sha256-tpDqYu9N/l8EmFQPC1BbOSrBy7bFJ1EbfryryDX//TM=",
         "owner": "iannisimo",
         "repo": "HyprPanel",
-        "rev": "d375e67e5f66d27d5d67a655f4569752e588b51b",
+        "rev": "2458952102d7d51f8a73e3e1841d0212d8556310",
         "type": "github"
       },
       "original": {

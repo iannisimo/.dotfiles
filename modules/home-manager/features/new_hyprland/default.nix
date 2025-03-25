@@ -150,6 +150,9 @@ in {
         "$hypr shift, down, layoutmsg, orientationbottom"
         "$hypr shift, C, layoutmsg, orientationcenter"
 
+        "CTRL SUPER, XF86TouchpadToggle,             exec, hyprctl keyword device[$TOUCHPAD]:enabled false"
+        "CTRL SUPER SHIFT, XF86TouchpadToggle,             exec, hyprctl keyword device[$TOUCHPAD]:enabled true"
+
         # Fn keys
         ", Print, exec, ${pkgs.grimblast}/bin/grimblast copy area"
         "shift, Print, exec, g${pkgs.grimblast}/bin/rimblast save area - | ${pkgs.feh}/bin/feh -Zx. -"

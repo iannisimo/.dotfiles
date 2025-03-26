@@ -1336,15 +1336,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1742607671,
-        "narHash": "sha256-QBnqfBaPBFvcRx0qeFhZ/J4m4BdR3vJ6EZEo/4arxLM=",
-        "owner": "FBIGlowie",
+        "lastModified": 1738304162,
+        "narHash": "sha256-sc/QikVALTXWzTt2aFKUza3jguuCHpJtWwhMHYTKWCo=",
+        "owner": "iannisimo",
         "repo": "zen-browser-flake",
-        "rev": "fa8ca618da0a76c2fc9488d2b190a9d58deb6a93",
+        "rev": "15b77236f32a6ec8b432d8a0408a70b638f616bf",
         "type": "github"
       },
       "original": {
-        "owner": "FBIGlowie",
+        "owner": "iannisimo",
         "repo": "zen-browser-flake",
         "type": "github"
       }

@@ -17,7 +17,7 @@
       betterGenres
       hidePodcasts
       playNext
-      randomBadToTheBoneRiff
+      # randomBadToTheBoneRiff
       oneko
       simpleBeautifulLyrics
     ];

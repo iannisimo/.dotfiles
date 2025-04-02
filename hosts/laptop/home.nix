@@ -41,6 +41,7 @@
       inotify-tools
       dust
       binwalk
+      whatsie
     ];
   };
 }

@@ -26,6 +26,7 @@
     # ]))
     nvim-lspconfig
     nvim-ts-autotag
+    quarto-nvim
   ];
   mkEntryFromDrv = drv:
     if lib.isDerivation drv then

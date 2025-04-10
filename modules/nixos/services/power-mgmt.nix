@@ -17,18 +17,18 @@
           INTEL_GPU_MAX_FREQ_ON_BAT=700;
           
           INTEL_GPU_BOOST_FREQ_ON_AC=1150;
-          INTEL_GPU_BOOST_FREQ_ON_BAT=900;
+          INTEL_GPU_BOOST_FREQ_ON_BAT=700;
 
-          CPU_MIN_PERF_ON_AC = 90;
+          CPU_MIN_PERF_ON_AC = 20;
           CPU_MAX_PERF_ON_AC = 100;
           CPU_MIN_PERF_ON_BAT = 0;
-          CPU_MAX_PERF_ON_BAT = 80;
+          CPU_MAX_PERF_ON_BAT = 60;
 
           CPU_BOOST_ON_AC=1;
           CPU_BOOST_ON_BAT=0;
 
-          CPU_HWP_DYN_BOOST_ON_AC=1;
-          CPU_HWP_DYN_BOOST_ON_BAT=0;
+          CPU_HWP_DYN_BOOST_ON_AC=0;
+          CPU_HWP_DYN_BOOST_ON_BAT=1;
 
           CPU_DRIVER_OPMODE_ON_AC="active";
           CPU_DRIVER_OPMODE_ON_BAT="active";
@@ -39,7 +39,6 @@
           CPU_SCALING_GOVERNOR_ON_AC="performance";
           CPU_SCALING_GOVERNOR_ON_BAT="powersave";
           
-          RUNTIME_PM_ON_AC="auto";
           # PCIE_ASPM_ON_AC="powersave";
           PCIE_ASPM_ON_BAT="powersupersave";
       };

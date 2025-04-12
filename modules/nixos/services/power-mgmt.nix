@@ -22,12 +22,12 @@
           CPU_MIN_PERF_ON_AC = 20;
           CPU_MAX_PERF_ON_AC = 100;
           CPU_MIN_PERF_ON_BAT = 0;
-          CPU_MAX_PERF_ON_BAT = 30;
+          CPU_MAX_PERF_ON_BAT = 10;
 
           CPU_BOOST_ON_AC=1;
           CPU_BOOST_ON_BAT=0;
 
-          CPU_HWP_DYN_BOOST_ON_AC=0;
+          CPU_HWP_DYN_BOOST_ON_AC=1;
           CPU_HWP_DYN_BOOST_ON_BAT=0;
 
           CPU_DRIVER_OPMODE_ON_AC="active";

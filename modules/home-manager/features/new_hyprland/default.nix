@@ -25,6 +25,8 @@ let
 
       alacritty --working-directory "$CWD"
     '';
+  telegram = "${ pkgs.telegram-desktop }/bin/telegram-desktop";
+  cinny = "${pkgs.unstable.kdePackages.cinny}/bin/cinny";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -32,11 +34,17 @@ in {
     xwayland.enable = true;
     systemd.enable = true;
 
+
     plugins = [
       inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
     settings = {
+
+      exec-once = [
+        telegram
+        cinny
+      ];
 
       plugin = {
         overview = {
@@ -127,7 +135,8 @@ in {
         "$mod, Return, exec, alacritty"
         "$mod shift, Return, exec, ${alacritty_cwd}/bin/alacritty_cwd"
         "$hypr, Z, exec, zen"
-        "$hypr, T, exec, telegram-desktop"
+        "$hypr, T, exec, ${telegram}"
+        "$hypr, C, exec, ${cinny}"
         "$mod, Space, exec, rofi -show drun"
 
         "$mod, w, killactive"

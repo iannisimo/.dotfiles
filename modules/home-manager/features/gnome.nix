@@ -14,7 +14,6 @@
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "net-label@slimani.dev"
-        "gsconnect@andyholmes.github.io"
         "drive-menu@gnome-shell-extensions.gcampax.github.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
@@ -50,7 +49,6 @@
   home = {
     packages = with pkgs; [
       gnomeExtensions.user-themes
-      gnomeExtensions.gsconnect
 
       dconf-editor
 

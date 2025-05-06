@@ -2,10 +2,6 @@
   services.xserver.desktopManager.gnome.enable = true;
 
 
-  programs.kdeconnect = {
-    enable = true;
-    package = pkgs.gnomeExtensions.gsconnect;
-  };
   programs.dconf.enable = true;
 
   services.udev.packages = with pkgs; [ 

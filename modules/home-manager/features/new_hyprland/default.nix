@@ -26,7 +26,7 @@ let
       alacritty --working-directory "$CWD"
     '';
   telegram = "${ pkgs.telegram-desktop }/bin/telegram-desktop";
-  cinny = "${pkgs.unstable.kdePackages.cinny}/bin/cinny";
+  cinny = "${pkgs.unstable.cinny-desktop}/bin/cinny";
 in {
   wayland.windowManager.hyprland = {
     enable = true;
